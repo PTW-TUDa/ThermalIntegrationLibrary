@@ -1,0 +1,4 @@
+within ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.TechnicalConfiguration;
+package BaseClasses
+
+end BaseClasses;

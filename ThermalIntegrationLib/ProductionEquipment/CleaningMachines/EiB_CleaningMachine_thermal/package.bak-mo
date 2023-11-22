@@ -1,0 +1,3 @@
+within ThermalIntegrationLib.ProductionEquipment.CleaningMachines;
+package EiB_CleaningMachine_thermal
+end EiB_CleaningMachine_thermal;

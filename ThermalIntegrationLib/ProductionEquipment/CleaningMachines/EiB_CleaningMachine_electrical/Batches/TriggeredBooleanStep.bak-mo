@@ -1,0 +1,38 @@
+within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine_electrical.Batches;
+model TriggeredBooleanStep
+  parameter Integer batch;
+  Modelica.Blocks.Interfaces.BooleanOutput y annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+  Modelica.Blocks.Interfaces.IntegerInput batch_nr annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+algorithm
+  when batch_nr == batch then
+    y :=true;
+  end when;
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+                                         Rectangle(
+          extent={{-100,100},{100,-100}},
+          fillColor={210,210,210},
+          fillPattern=FillPattern.Solid,
+          borderPattern=BorderPattern.Raised),
+        Line(
+          visible=not startValue,
+          points={{-80,-74},{0,-74},{0,46},{80,46}}),
+        Polygon(
+          points={{-80,80},{-88,58},{-72,58},{-80,80}},
+          lineColor={255,0,255},
+          fillColor={255,0,255},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-80,68},{-80,-80}}, color={255,0,255}),
+        Line(points={{-86,-74},{76,-74}}, color={255,0,255}),
+        Polygon(
+          points={{90,-74},{68,-66},{68,-82},{90,-74}},
+          lineColor={255,0,255},
+          fillColor={255,0,255},
+          fillPattern=FillPattern.Solid),
+        Line(
+          points={{0,-76},{0,-90}},
+          color={244,125,35},
+          arrow={Arrow.Filled,Arrow.None}),    Text(
+          extent={{-150,144},{150,104}},
+          textString="%name",
+          lineColor={0,0,255})}),                                Diagram(coordinateSystem(preserveAspectRatio=false)));
+end TriggeredBooleanStep;

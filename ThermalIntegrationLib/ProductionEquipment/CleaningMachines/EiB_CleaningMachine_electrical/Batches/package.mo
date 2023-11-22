@@ -1,0 +1,3 @@
+within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine_electrical;
+package Batches
+end Batches;

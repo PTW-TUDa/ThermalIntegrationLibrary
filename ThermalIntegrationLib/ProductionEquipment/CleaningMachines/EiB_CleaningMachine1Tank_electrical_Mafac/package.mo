@@ -1,0 +1,3 @@
+within ThermalIntegrationLib.ProductionEquipment.CleaningMachines;
+package EiB_CleaningMachine1Tank_electrical_Mafac
+end EiB_CleaningMachine1Tank_electrical_Mafac;

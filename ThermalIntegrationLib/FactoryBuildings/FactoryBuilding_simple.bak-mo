@@ -1,0 +1,33 @@
+within ThermalIntegrationLib.FactoryBuildings;
+model FactoryBuilding_simple
+  extends ThermalIntegrationLib.FactoryBuildings.BaseClasses.BaseFactoryBuilding(
+    outsideTemperature=283.15,
+    insideTemperature=293.15,
+    electricDemands=0,
+    coolDemands=0,
+    heatDemands=2)
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+  parameter Modelica.SIunits.Power P_th_nom_spaceheating=50000;
+  parameter Modelica.SIunits.Power P_th_nom_hotwater=5000;
+  Modelica.Blocks.Sources.Trapezoid space_heating(
+    amplitude=0.6*P_th_nom_spaceheating,
+    rising=2*3600,
+    width=6*3600,
+    falling=12*3600,
+    period=86400,
+    offset=0.4*P_th_nom_spaceheating,
+    startTime=4*3600)                             annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+  Modelica.Blocks.Sources.Pulse hot_water(
+    amplitude=0.5*P_th_nom_hotwater,
+    period=3600,
+    offset=0.5*P_th_nom_hotwater)         annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+equation
+  heatDemand[1].Q_flow[1] = space_heating.y;
+  heatDemand[1].T_in[1] = 40;
+  heatDemand[1].T_out[1] = 25;
+
+  heatDemand[2].Q_flow[1] = hot_water.y;
+  heatDemand[2].T_in[1] = 60;
+  heatDemand[2].T_out[1] = 55;
+
+end FactoryBuilding_simple;
