@@ -20,8 +20,7 @@ model EiB_CleaningMachine2Tanks_thermal
     parameter Integer tableWashing_T2[:,1]=[4] "States when washing with tank 2 is active";
     replaceable parameter
     ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal.TechnicalConfiguration.TechnicalConfiguration_a
-    TechnicalConfiguration constrainedby
-    ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base
+    TechnicalConfiguration constrainedby ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base
     "Record which defines technical/physical parameters";
   ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal.TankHeating.thermTankHeating1 thermTankHeating1(
     m_t1=TechnicalConfiguration.m_t1,

@@ -16,8 +16,7 @@ model EiB_CleaningMachine1Tank_thermal_Mafac
     parameter Modelica.SIunits.Temperature T_heat=363.15 "Temperature level of (potential) heat network" annotation(Dialog(group = "Heating"));
     replaceable parameter
     ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal_Mafac.TechnicalConfiguration.TechnicalConfiguration_a
-    TechnicalConfiguration constrainedby
-    ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal_Mafac.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base;
+    TechnicalConfiguration constrainedby ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal_Mafac.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base;
   ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal_Mafac.TankHeating.thermTankHeating1 thermTankHeating1(
     m_t1=TechnicalConfiguration.m_t1,
     A_t1=TechnicalConfiguration.A_t1,

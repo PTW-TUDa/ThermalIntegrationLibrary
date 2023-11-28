@@ -1,7 +1,6 @@
 within ThermalIntegrationLib.Examples;
 model HD_usecase_hall12
   extends Modelica.Icons.Example;
-  FactoryBuildings.BuildingModels.Hall_12.FactoryModel12.Hall12_clean hall12_clean(insideTemperature=hall12_clean.productionHall_clean.insideRoomTemperature, outsideTemperature=hall12_clean.productionHall_clean.outsideTemperature) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   inner BaseClasses.SystemEnergyManager sem(useBuilding=true) annotation (Placement(transformation(extent={{80,80},{100,100}})));
   Modelica.Blocks.Sources.BooleanPulse booleanPulse(width=71.4, period(displayUnit="d") = 604800) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

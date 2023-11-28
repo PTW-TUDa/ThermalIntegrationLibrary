@@ -18,8 +18,7 @@ model EiB_CleaningMachine2Tanks_electrical
     parameter Integer tableWashing_T2[:,1]=[4] "States when washing tank 2 is active";
     replaceable parameter
     ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_electrical.TechnicalConfiguration.TechnicalConfiguration_a
-    TechnicalConfiguration constrainedby
-    ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_electrical.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base;
+    TechnicalConfiguration constrainedby ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_electrical.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base;
   Modelica.Blocks.Math.MultiSum Sum_elPow(nu=4)
                                           annotation (Placement(transformation(extent={{128,-6},{140,
             6}})));

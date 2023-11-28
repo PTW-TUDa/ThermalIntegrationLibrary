@@ -865,8 +865,7 @@ ctrl")}),                                                            Diagram(coo
       parameter Integer tableWashing[:,1]=[3] "States when washing is active";
     replaceable parameter
       ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_electrical.TechnicalConfiguration.TechnicalConfiguration_htk
-      TechnicalConfiguration constrainedby
-      ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_electrical.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base;
+      TechnicalConfiguration constrainedby ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_electrical.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base;
     Modelica.Blocks.Math.MultiSum Sum_elPow(k={0.001,0.001,0.001},
                                             nu=3)
                                             annotation (Placement(transformation(extent={{128,-6},{140,

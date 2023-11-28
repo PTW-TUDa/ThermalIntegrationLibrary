@@ -3,41 +3,18 @@ model BldSystemEnergyManager "Manages energy flows of machines and factory build
   extends ThermalIntegrationLib.BaseClasses.SystemEnergyManager(
                               useBuilding=false);
 
-  FactoryBuildings.ResultSummaryBldSEM resultSummary[nBuildings];
-
   //ThermalIntegrationLib.Internals.ElectricPowerPort[nPV] pvPowerPort;
 
   parameter Integer nBuildings=2 "Number of building versions to be compared";
-  parameter FactoryBuildings.Types.EnergyPrice heatingPrice=50 "Price for heating in euros/MWh";
-  parameter FactoryBuildings.Types.EnergyPrice coolingPrice=40 "Price for cooling in euros/MWh";
-  parameter FactoryBuildings.Types.EnergyPrice electricityPrice=40 "Electricity price in euros per MWh";
-  parameter FactoryBuildings.Types.CO2factor heatingEmissionFactor=240 "Emission factor for heating in g CO2 equivalent per kWh";
-  parameter FactoryBuildings.Types.CO2factor coolingEmissionFactor=485 "Emission factor for cooling in g CO2 equivalent per kWh";
-  parameter FactoryBuildings.Types.CO2factor electricityEmissionFactor=485 "Emission factor for electricity in g CO2 equivalent per kWh";
   //parameter Integer nPV(min=0,max=nBuildings)=0 "Number of buildings with a PV plant";
   //parameter Integer idPV[nPV](min=1,max=nBuildings) "IDs of the buildings with PV plant" annotation(dialog(enable=nPV>0));
-  parameter FactoryBuildings.Types.EnergyPrice pvFeedinTariff=8.2*10^(-6) "Tariff for feeding PV electricity into the grid" annotation (dialog(enable=nPV > 0));
   //parameter Boolean feedInOnly=false "Set to true if no self usage of PV electricity is desired" annotation(dialog(enable=nPV>0));
   // Annual demands
   Modelica.SIunits.Heat annualHeatDemand[nBuildings](displayUnit="MWh") "Annual space heating demand of the buildings";
   Modelica.SIunits.Heat annualCoolDemand[nBuildings](displayUnit="MWh") "Annual space cooling demand of the buildings";
   Modelica.SIunits.Energy annualElectricDemand[nBuildings](displayUnit="MWh") "Annual building related electrical energy demand";
   // Annual costs
-  FactoryBuildings.Types.Money annualHeatingCost[nBuildings];
-  FactoryBuildings.Types.Money annualCoolingCost[nBuildings];
-  FactoryBuildings.Types.Money annualElectricityCost[nBuildings];
-  FactoryBuildings.Types.Money instantElectricityCost[nBuildings];
-  FactoryBuildings.Types.EnergyPrice heatingPricePerJ=heatingPrice*perMWhToPerJ "Euros per kWh -> per J";
-  FactoryBuildings.Types.EnergyPrice coolingPricePerJ=coolingPrice*perMWhToPerJ "Euros per kWh -> per J";
-  FactoryBuildings.Types.EnergyPrice electricityPricePerJ=electricityPrice*perMWhToPerJ "Euros per MWh -> per J";
-  FactoryBuildings.Types.EnergyPrice pvFeedinTariffPerJ=pvFeedinTariff*perMWhToPerJ "Euros per MWh -> per J";
   // Annual emissions
-  FactoryBuildings.Types.GHGemissions annualHeatingEmissions[nBuildings];
-  FactoryBuildings.Types.GHGemissions annualCoolingEmissions[nBuildings];
-  FactoryBuildings.Types.GHGemissions annualElectricityEmissions[nBuildings];
-  FactoryBuildings.Types.CO2factor heatingEmissionFactorPerJ=heatingEmissionFactor*kgPerMWhToTonsPerJ "kg per MWh -> t per J";
-  FactoryBuildings.Types.CO2factor coolingEmissionFactorPerJ=coolingEmissionFactor*kgPerMWhToTonsPerJ "kg per MWh -> t per J";
-  FactoryBuildings.Types.CO2factor electricityEmissionFactorPerJ=electricityEmissionFactor*kgPerMWhToTonsPerJ "kg per MWh -> t per J";
   // PV
   //Modelica.SIunits.Energy annualPVfeedin[nPV](displayUnit="MWh") "Annual feed in by PV";
 

@@ -15,8 +15,7 @@ model EiB_CleaningMachine2Tanks_electrical_Mafac
       10; 11,15; 8,60; 11,15; 14,60; 13,90; 17,15; 2,60] "Washing programm (washing mode = first column, duration in s = second column)";
     replaceable parameter
     ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_electrical_Mafac.TechnicalConfiguration.TechnicalConfiguration_a
-    TechnicalConfiguration constrainedby
-    ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_electrical_Mafac.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base;
+    TechnicalConfiguration constrainedby ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_electrical_Mafac.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base;
   Modelica.Blocks.Math.MultiSum Sum_elPow(nu=7)
                                           annotation (Placement(transformation(extent={{128,-6},{140,
             6}})));

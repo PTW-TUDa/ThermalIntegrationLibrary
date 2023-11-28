@@ -18,8 +18,7 @@ model EiB_CleaningMachine1Tank_thermal
     parameter Integer tableWashing[:,1]=[3] "States when washing is active";
     replaceable parameter
     ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal.TechnicalConfiguration.TechnicalConfiguration_htk
-    TechnicalConfiguration constrainedby
-    ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base;
+    TechnicalConfiguration constrainedby ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base;
   Modelica.Blocks.Math.MultiSum P_el(nu=2) annotation (Placement(transformation(extent={{56,94},{68,106}})));
   Modelica.Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(m=2)
     annotation (Placement(transformation(
