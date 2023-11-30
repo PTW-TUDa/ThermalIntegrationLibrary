@@ -46,6 +46,7 @@ model HD_usecase_hall12
     tableProcessingProgramm=[0,1; 31507200,1],
     TechnicalConfiguration(CentralColdWater=true, WaterCooledControlCabinet=false),
     ProcessingProgramm_1(ProcessingProgramm=[0,0,0,0; 3,5000,0,0])) annotation (Placement(transformation(extent={{-70,-20},{-30,20}})));
+  FactoryBuilding.BuildingShell.Wall wall(redeclare Records.ETAResearchFactory_Walls deviceData) annotation (Placement(transformation(extent={{-80,-56},{-60,-36}})));
 equation
   connect(booleanPulse.y, hall12_clean.workday) annotation (Line(points={{0,-19},{0,-12}}, color={255,0,255}));
   annotation (

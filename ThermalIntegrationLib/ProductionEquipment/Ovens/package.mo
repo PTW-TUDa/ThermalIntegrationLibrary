@@ -283,15 +283,14 @@ package Ovens
                 color={0,0,0},
                 thickness=0.5)}),                                                                      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,-200},{200,200}})),
           Documentation(info="<html>
-<p>The thermal system model of the annealing oven is based on the following assumptions:</p>
+<p><span style=\"font-size: 14pt;\">The thermal system model of the annealing oven is based on the following assumptions:</span></p>
 <ol>
-<li>The main thermal losses of the annealing oven are due to wall-, door-, and radiation-losses (once the door is opened)</li>
-<li>The thermal behavior within the chamber/retort is primarily influenced by the workpiece and workpiece carrier. The mass and heat capacity of the atmosphere within the chamber/retort is not taken into consideration</li>
-<li>Thermal energy exchange between the retort and workpiece/workpiece carrier is not taken into consideration. Therefore the temperature of the retort and workpiece/workpiece carrier is more or less equal</li>
-<li>Once the door is opened, the workpiece/workpiece carrier is extracted and therefore initialized with a new, lower temperature</li>
-<li>Once the door is opened, the retort/chamber exchanges thermal energy with the environment via radiation. Here, black body radiation is assumed</li>
+<li><span style=\"font-size: 14pt;\">The main thermal losses of the annealing oven are due to wall-, door-, and radiation-losses (once the door is opened)</span></li>
+<li><span style=\"font-size: 14pt;\">The thermal behavior within the chamber/retort is primarily influenced by the workpiece and workpiece carrier. The mass and heat capacity of the atmosphere within the chamber/retort is not taken into consideration</span></li>
+<li><span style=\"font-size: 14pt;\">Thermal energy exchange between the retort and workpiece/workpiece carrier is not taken into consideration. Therefore the temperature of the retort and workpiece/workpiece carrier is more or less equal</span></li>
+<li><span style=\"font-size: 14pt;\">Once the door is opened, the workpiece/workpiece carrier is extracted and therefore initialized with a new, lower temperature</span></li>
+<li><span style=\"font-size: 14pt;\">Once the door is opened, the retort/chamber exchanges thermal energy with the environment via radiation. Here, black body radiation is assumed</span></li>
 </ol>
-<p>TO DO: implement interaction between manufacturing hall and workpiece/carrier</p>
 </html>"));
       end ThermalSystem;
 
