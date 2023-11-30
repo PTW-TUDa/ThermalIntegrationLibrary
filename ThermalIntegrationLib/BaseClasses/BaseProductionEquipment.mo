@@ -3,7 +3,7 @@ partial model BaseProductionEquipment
   extends ThermalIntegrationLib.BaseClasses.Icons.BaseProductionEquipment;
 protected
   outer ThermalIntegrationLib.BaseClasses.SystemEnergyManager sem "System energy manager";
-  ThermalIntegrationLib.Internals.SemPowerPort semPowerPort;
+  ThermalIntegrationLib.BaseClasses.Internals.SemPowerPort semPowerPort;
 
 public
   parameter Integer ID = 1 "Unique ID";
@@ -13,9 +13,9 @@ public
   parameter Integer operationModes = 2 "Operation modes 0: off, 1: ..., 2:...";
 
   //define demands
-  ThermalIntegrationLib.Internals.Q_flowDemand[heatDemands] heatDemand(each final operationModes=operationModes);
-  ThermalIntegrationLib.Internals.Q_flowDemand[coolDemands] coolDemand(each final operationModes=operationModes);
-  ThermalIntegrationLib.Internals.ElectricDemand[electricDemands] electricDemand(each final operationModes=operationModes);
+  ThermalIntegrationLib.BaseClasses.Internals.Q_flowDemand[heatDemands] heatDemand(each final operationModes=operationModes);
+  ThermalIntegrationLib.BaseClasses.Internals.Q_flowDemand[coolDemands] coolDemand(each final operationModes=operationModes);
+  ThermalIntegrationLib.BaseClasses.Internals.ElectricDemand[electricDemands] electricDemand(each final operationModes=operationModes);
 
   //define operation mode vs. time
   parameter Real tableOperationMode[:, 2] = [0, 0; 1, 0]

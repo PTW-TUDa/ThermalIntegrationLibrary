@@ -7,10 +7,10 @@ model ResearchFactoryBuildingETA
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b radiationWest annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b radiationEast annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor airHall annotation (Placement(transformation(extent={{90,0},{110,20}})));
-  BuildingShell.Wall wallNorth annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
-  BuildingShell.Wall wallSouth annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
-  BuildingShell.Wall wallEast annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
-  BuildingShell.Wall wallWestETA annotation (Placement(transformation(extent={{-40,90},{-20,110}})));
+  BuildingEnvelope.Wall wallNorth annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
+  BuildingEnvelope.Wall wallSouth annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+  BuildingEnvelope.Wall wallEast annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
+  BuildingEnvelope.Wall wallWestETA annotation (Placement(transformation(extent={{-40,90},{-20,110}})));
   Modelica.Thermal.HeatTransfer.Components.ConvectiveResistor convectiveResistor2 annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,

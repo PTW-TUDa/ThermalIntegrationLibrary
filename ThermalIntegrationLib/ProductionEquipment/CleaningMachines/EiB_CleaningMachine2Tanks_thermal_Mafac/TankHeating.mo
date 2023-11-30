@@ -2,8 +2,7 @@ within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMa
 package TankHeating
 
   model heatController
-    extends
-      ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal_Mafac.TechnicalConfiguration.TechnicalConfiguration_a;
+    extends ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal_Mafac.TechnicalConfiguration.TechnicalConfiguration_a;
       parameter Integer st1, st2;
     Modelica.Blocks.Interfaces.IntegerInput state
       annotation (Placement(transformation(extent={{-120,-10},{-100,10}}), iconTransformation(extent={{-120,-10},{-100,10}})));
@@ -359,8 +358,7 @@ controller")}),             Diagram(coordinateSystem(preserveAspectRatio=false))
   end thermTankHeating1;
 
   model elTankHeating1
-    extends
-      ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal_Mafac.TechnicalConfiguration.TechnicalConfiguration_a;
+    extends ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal_Mafac.TechnicalConfiguration.TechnicalConfiguration_a;
     Modelica.Thermal.HeatTransfer.Components.HeatCapacitor MT(C=c_fluid*m_t1, T(fixed=true, start=T_req))
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},

@@ -1,3 +1,0 @@
-within ThermalIntegrationLib.FactoryBuilding;
-package BuildingSurrounding
-end BuildingSurrounding;

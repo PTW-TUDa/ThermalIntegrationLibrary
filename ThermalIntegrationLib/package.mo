@@ -1,6 +1,6 @@
 within ;
 package ThermalIntegrationLib
-  extends ThermalIntegrationLib.BaseClasses.Icons.ThermalIntegrationLibrary;
+  extends ThermalIntegrationLib.BaseClasses.Icons.ThermalIntegrationLibraryPackage;
   import SI = Modelica.SIunits;
   import PI = Modelica.Constants.pi;
 

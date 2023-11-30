@@ -1,5 +1,4 @@
-within ThermalIntegrationLib.Examples;
+within ThermalIntegrationLib.FactoryBuilding.BuildingEnvelope;
 package Records
   extends Modelica.Icons.RecordsPackage;
-
 end Records;

@@ -203,5 +203,4 @@ package ProcessingProgramms
             lineColor={0,0,0},
             textString="stc")}),Diagram(coordinateSystem(preserveAspectRatio=false)));
   end stateController;
-
 end ProcessingProgramms;

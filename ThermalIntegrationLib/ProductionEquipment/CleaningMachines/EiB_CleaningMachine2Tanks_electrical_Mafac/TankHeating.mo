@@ -290,5 +290,4 @@ package TankHeating
             lineThickness=0.5)}),
                                 Diagram(coordinateSystem(preserveAspectRatio=false)));
   end Tank2_heating;
-
 end TankHeating;

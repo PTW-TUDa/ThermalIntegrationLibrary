@@ -16,11 +16,11 @@ model SystemEnergyManager "Manages energy flows of machines and factory building
   SI.Temperature outsideTemperature;
 
   //basic information for pinch analysis [10]-->ID, [3]-->operating modes
-  ThermalIntegrationLib.Internals.ElectricPowerPort[10] electricPowerPort;
-  ThermalIntegrationLib.Internals.DissipationPowerPort[10] dissipationPowerPort;
-  ThermalIntegrationLib.Internals.CoolingPowerPort[10,5] coolingPowerPort;
-  ThermalIntegrationLib.Internals.HeatingPowerPort[10,5] heatingPowerPort;
-  ThermalIntegrationLib.Internals.BuildingPort buildingPort;
+  ThermalIntegrationLib.BaseClasses.Internals.ElectricPowerPort[10] electricPowerPort;
+  ThermalIntegrationLib.BaseClasses.Internals.DissipationPowerPort[10] dissipationPowerPort;
+  ThermalIntegrationLib.BaseClasses.Internals.CoolingPowerPort[10,5] coolingPowerPort;
+  ThermalIntegrationLib.BaseClasses.Internals.HeatingPowerPort[10,5] heatingPowerPort;
+  ThermalIntegrationLib.BaseClasses.Internals.BuildingPort buildingPort;
 
   SI.HeatFlowRate totalHeatingPower;
   SI.HeatFlowRate totalCoolingPower;

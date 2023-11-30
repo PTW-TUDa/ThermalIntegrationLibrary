@@ -2,8 +2,7 @@ within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMa
 package TankHeating
 
   model heatController
-    extends
-      ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal_Mafac.TechnicalConfiguration.TechnicalConfiguration_a;
+    extends ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal_Mafac.TechnicalConfiguration.TechnicalConfiguration_a;
       parameter Integer st1, st2;
     Modelica.Blocks.Interfaces.IntegerInput state
       annotation (Placement(transformation(extent={{-120,-10},{-100,10}}), iconTransformation(extent={{-120,-10},{-100,10}})));

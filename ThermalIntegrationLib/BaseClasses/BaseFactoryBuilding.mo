@@ -4,7 +4,7 @@ partial model BaseFactoryBuilding
   //outer BldSystemEnergyManager semBld if compareBuildings "System energy manager";
 //protected
   outer ThermalIntegrationLib.BaseClasses.SystemEnergyManager sem "System energy manager";
-  ThermalIntegrationLib.Internals.SemPowerPort semPowerPort;
+  ThermalIntegrationLib.BaseClasses.Internals.SemPowerPort semPowerPort;
  // ThermalIntegrationLib.Internals.BuildingPort buildingPort;
 //public
   parameter Integer ID = 1 "Unique ID";
@@ -14,9 +14,9 @@ partial model BaseFactoryBuilding
   final parameter Integer operationModes = 1 "Operation modes 0: off, 1: ..., 2:...";
   parameter Boolean compareBuildings=false "Set to true if only building energy efficiency measures are to be compared";
 
-  ThermalIntegrationLib.Internals.Q_flowDemand[heatDemands] heatDemand(each final operationModes=operationModes);
-  ThermalIntegrationLib.Internals.Q_flowDemand[coolDemands] coolDemand(each final operationModes=operationModes);
-  ThermalIntegrationLib.Internals.ElectricDemand[electricDemands] electricDemand(each final operationModes=operationModes);
+  ThermalIntegrationLib.BaseClasses.Internals.Q_flowDemand[heatDemands] heatDemand(each final operationModes=operationModes);
+  ThermalIntegrationLib.BaseClasses.Internals.Q_flowDemand[coolDemands] coolDemand(each final operationModes=operationModes);
+  ThermalIntegrationLib.BaseClasses.Internals.ElectricDemand[electricDemands] electricDemand(each final operationModes=operationModes);
 
   //parameter Real tableOperationMode[:, 2] = [0, 0; 1, 0]
   //  "Table matrix (time = first column; operationMode = second column)";

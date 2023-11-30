@@ -1,7 +1,6 @@
 within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal.TankHeating;
 model elTankHeating1
-  extends
-    ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal_Mafac.TechnicalConfiguration.TechnicalConfiguration_a;
+  extends ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal_Mafac.TechnicalConfiguration.TechnicalConfiguration_a;
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor MT(C=c_fluid*m_t1, T(fixed=true, start=T_req))
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
