@@ -1,5 +1,5 @@
 within ThermalIntegrationLib.ProductionEquipment.MachineTools;
-package Test
+package Example
   extends Modelica.Icons.ExamplesPackage;
 
-end Test;
+end Example;

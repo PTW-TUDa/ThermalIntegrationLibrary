@@ -1,6 +1,6 @@
-within ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.TechnicalConfiguration.BaseClasses;
+within ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.Records;
 record TechnicalConfiguration_base
-
+  extends Modelica.Icons.Record;
   parameter Modelica.SIunits.HeatCapacity C_MachineTool "Heat capacity of machine tool" annotation(Dialog(tab = "Thermal system properties"));
   parameter Modelica.SIunits.ThermalConductance lambda_coolinglubricant "Thermal conductance for coolinglubricant system" annotation(Dialog(tab = "Thermal system properties"));
   parameter Modelica.SIunits.ThermalConductance lambda_machinecooling "Thermal conductance for machine cooling system"

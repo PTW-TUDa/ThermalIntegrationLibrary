@@ -1,4 +1,4 @@
-within ThermalIntegrationLib.ProductionEquipment.MachineTools.Test;
+within ThermalIntegrationLib.ProductionEquipment.MachineTools.Example;
 function Validation_TurningMachine_Function
 
 algorithm

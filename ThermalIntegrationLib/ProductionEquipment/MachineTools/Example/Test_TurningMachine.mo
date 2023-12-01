@@ -1,4 +1,4 @@
-within ThermalIntegrationLib.ProductionEquipment.MachineTools.Test;
+within ThermalIntegrationLib.ProductionEquipment.MachineTools.Example;
 model Test_TurningMachine
   extends Modelica.Icons.Example;
   inner ThermalIntegrationLib.BaseClasses.SystemEnergyManager sem(useBuilding=false) annotation (Placement(transformation(extent={{70,70},{90,90}})));

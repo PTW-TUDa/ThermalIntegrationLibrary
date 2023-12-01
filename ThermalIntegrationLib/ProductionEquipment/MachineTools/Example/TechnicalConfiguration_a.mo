@@ -1,6 +1,7 @@
-within ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.TechnicalConfiguration;
+within ThermalIntegrationLib.ProductionEquipment.MachineTools.Example;
 record TechnicalConfiguration_a
-  extends ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base(
+  extends Modelica.Icons.Record;
+  extends ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.Records.TechnicalConfiguration_base(
     T_target_ControlCabinet=293.15,
     T_target_MachineTool=293.15,
     T_target_coolWater=303.15,

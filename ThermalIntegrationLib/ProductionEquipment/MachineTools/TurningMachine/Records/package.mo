@@ -1,4 +1,6 @@
 within ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine;
-package ProcessingProgramms
+package Records
   extends Modelica.Icons.RecordsPackage;
-end ProcessingProgramms;
+
+
+end Records;
