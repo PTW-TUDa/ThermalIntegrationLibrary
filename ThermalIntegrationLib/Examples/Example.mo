@@ -3,7 +3,7 @@ model Example
   inner BaseClasses.SystemEnergyManager sem(useBuilding=true)
                                             annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
 
-  ProductionEquipment.MachineTools.Example.TurningMachine turningMachine(
+  ProductionEquipment.MachineTools.MachineTool.TurningMachine turningMachine(
     redeclare ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.Kugelspiel_OP10 ProcessingProgramm_1,
     redeclare ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.Kugelspiel_OP20 ProcessingProgramm_2,
     redeclare ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.Steuerscheibe_OP10 ProcessingProgramm_3,

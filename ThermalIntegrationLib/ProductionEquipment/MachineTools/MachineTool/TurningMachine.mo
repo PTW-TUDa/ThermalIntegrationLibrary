@@ -1,4 +1,4 @@
-within ThermalIntegrationLib.ProductionEquipment.MachineTools.Example;
+within ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool;
 model TurningMachine
   extends ThermalIntegrationLib.BaseClasses.BaseProductionEquipment(
     electricDemands=1,

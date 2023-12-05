@@ -1,4 +1,4 @@
-within ThermalIntegrationLib.ProductionEquipment.MachineTools;
+within ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool;
 record TechnicalConfiguration
   extends Modelica.Icons.Record;
   extends ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.Records.TechnicalConfiguration_base(
