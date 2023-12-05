@@ -1,9 +1,0 @@
-within ThermalIntegrationLib.Examples.Records;
-record ETAResearchFactory_Walls
-  extends ThermalIntegrationLib.FactoryBuilding.BuildingEnvelope.Records.WallProperties(
-  length=40,
-  width=11,
-  k=0.225,
-  G=length*width*k);
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
-end ETAResearchFactory_Walls;

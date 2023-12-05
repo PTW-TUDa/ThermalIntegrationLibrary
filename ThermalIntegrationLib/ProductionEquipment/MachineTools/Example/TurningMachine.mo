@@ -13,53 +13,53 @@ model TurningMachine
     operationModes=4);
   parameter Real tableProcessingProgramm[:,2]=[0,1; 86400,1]
                                                "Table which defines the sequence of processing programms (time = first column; processingProgramm = second column)";
-  replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.ProcessingProgramms.Kugelspiel_OP10 ProcessingProgramm_1 constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.ProcessingProgramms.BaseClasses.ProcessingProgramm_base "Table which defines power demand of components during operating modes (operating mode = first column; power demand = following columns)"
+  replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.Kugelspiel_OP10 ProcessingProgramm_1 constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.BaseClasses.ProcessingProgramm_base "Table which defines power demand of components during operating modes (operating mode = first column; power demand = following columns)"
     annotation (choicesAllMatching=true, Placement(transformation(extent={{-190,-190},{-170,-170}})));
-  replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.ProcessingProgramms.Kugelspiel_OP20 ProcessingProgramm_2 constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.ProcessingProgramms.BaseClasses.ProcessingProgramm_base "Table which defines power demand of components during operating modes (operating mode = first column; power demand = following columns)"
+  replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.Kugelspiel_OP20 ProcessingProgramm_2 constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.BaseClasses.ProcessingProgramm_base "Table which defines power demand of components during operating modes (operating mode = first column; power demand = following columns)"
     annotation (choicesAllMatching=true, Placement(transformation(extent={{-150,-190},{-130,-170}})));
-  replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.ProcessingProgramms.Steuerscheibe_OP10 ProcessingProgramm_3 constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.ProcessingProgramms.BaseClasses.ProcessingProgramm_base "Table which defines power demand of components during operating modes (operating mode = first column; power demand = following columns)"
+  replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.Steuerscheibe_OP10 ProcessingProgramm_3 constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.BaseClasses.ProcessingProgramm_base "Table which defines power demand of components during operating modes (operating mode = first column; power demand = following columns)"
     annotation (choicesAllMatching=true, Placement(transformation(extent={{-110,-190},{-90,-170}})));
-  replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.ProcessingProgramms.Steuerscheibe_OP20 ProcessingProgramm_4 constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.ProcessingProgramms.BaseClasses.ProcessingProgramm_base "Table which defines power demand of components during operating modes (operating mode = first column; power demand = following columns)"
+  replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.Steuerscheibe_OP20 ProcessingProgramm_4 constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.BaseClasses.ProcessingProgramm_base "Table which defines power demand of components during operating modes (operating mode = first column; power demand = following columns)"
     annotation (choicesAllMatching=true, Placement(transformation(extent={{-70,-190},{-50,-170}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.ThermalSystem.ThermalSystem thermalSystem(
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ThermalSystem.ThermalSystem thermalSystem(
     heatCapacitor(C=TechnicalConfiguration.C_MachineTool, T(start=TInitial)),
     thermalConductor(G=TechnicalConfiguration.lambda_coolinglubricant),
     thermalConductor1(G=TechnicalConfiguration.lambda_loss),
     thermalConductor2(G=TechnicalConfiguration.lambda_machinecooling)) annotation (Placement(transformation(extent={{100,-20},{140,20}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.Drives.Drives drives annotation (Placement(transformation(extent={{-40,-90},{-20,-70}})));
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.Drives.Drives drives annotation (Placement(transformation(extent={{-40,-90},{-20,-70}})));
   Modelica.Blocks.Math.MultiSum DC(nu=1) annotation (Placement(transformation(extent={{-6,-86},{6,-74}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.ProcessController.ProcessController processController(
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessController.ProcessController processController(
     ProcessingProgramm1=ProcessingProgramm_1.ProcessingProgramm,
     ProcessingProgramm2=ProcessingProgramm_2.ProcessingProgramm,
     ProcessingProgramm3=ProcessingProgramm_3.ProcessingProgramm,
     ProcessingProgramm4=ProcessingProgramm_4.ProcessingProgramm) annotation (Placement(transformation(extent={{-116,-20},{-76,20}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.CoolingLubricantSystem.CoolingLubricantSystem coolingLubricantSystem annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.HydraulicSystem.HydraulicSystem hydraulicSystem annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.CoolingLubricantSystem.CoolingLubricantSystem coolingLubricantSystem annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.HydraulicSystem.HydraulicSystem hydraulicSystem annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
   Modelica.Blocks.Sources.IntegerExpression integerExpression(y=operationMode) annotation (Placement(transformation(extent={{-170,0},{-150,20}})));
   Modelica.Blocks.Sources.IntegerTable integerTable(table=tableProcessingProgramm)
                                                     annotation (Placement(transformation(extent={{-172,-20},{-152,0}})));
   Modelica.Blocks.Math.MultiSum AC_DC(nu=2) annotation (Placement(transformation(extent={{60,6},{72,-6}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.ControlCabinet.ControlCabinet controlCabinet(
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ControlCabinet.ControlCabinet controlCabinet(
     m_controlCabinet=20,
     cp_controlCabinet=900,
     eta_controlCabinet=0.95,
     heatCapacitor(T(start=TInitial))) annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Modelica.Blocks.Math.MultiSum sum(nu=2) annotation (Placement(transformation(extent={{-6,-6},{6,6}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.CoolingSystem.CentralCoolWater centralCoolWater(T_flow=TechnicalConfiguration.T_target_coolWater - 5) annotation (Placement(transformation(extent={{120,110},{140,130}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.CoolingSystem.ColdWaterNetwork coldWater(heatCapacitor(T(start=TechnicalConfiguration.T_target_coldWater))) annotation (Placement(transformation(extent={{20,90},{40,110}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.CoolingSystem.CentralColdWater centralColdWater(T_flow=TechnicalConfiguration.T_target_coldWater - 5) annotation (Placement(transformation(extent={{120,90},{140,110}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.TransferUnit.TransferUnit transferUnit2(
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.CoolingSystem.CentralCoolWater centralCoolWater(T_flow=TechnicalConfiguration.T_target_coolWater - 5) annotation (Placement(transformation(extent={{120,110},{140,130}})));
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.CoolingSystem.ColdWaterNetwork coldWater(heatCapacitor(T(start=TechnicalConfiguration.T_target_coldWater))) annotation (Placement(transformation(extent={{20,90},{40,110}})));
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.CoolingSystem.CentralColdWater centralColdWater(T_flow=TechnicalConfiguration.T_target_coldWater - 5) annotation (Placement(transformation(extent={{120,90},{140,110}})));
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.TransferUnit.TransferUnit transferUnit2(
     IsUsed=TechnicalConfiguration.CentralColdWater,
     lambda=TechnicalConfiguration.lambda_components,
     T_target=TechnicalConfiguration.T_target_coldWater) annotation (Placement(transformation(extent={{100,90},{80,110}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.TransferUnit.TransferUnit transferUnit3(
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.TransferUnit.TransferUnit transferUnit3(
     IsUsed=TechnicalConfiguration.WaterCooledCompressionChiller,
     lambda=TechnicalConfiguration.lambda_components,
     T_target=TechnicalConfiguration.T_target_coolWater) annotation (Placement(transformation(extent={{100,110},{80,130}})));
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.CoolingSystem.ColdWaterNetwork coolWater(heatCapacitor(T(start=TechnicalConfiguration.T_target_coolWater))) annotation (Placement(transformation(extent={{40,110},{20,130}})));
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.CoolingSystem.ColdWaterNetwork coolWater(heatCapacitor(T(start=TechnicalConfiguration.T_target_coolWater))) annotation (Placement(transformation(extent={{40,110},{20,130}})));
   Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor dissipation annotation (Placement(transformation(extent={{190,180},{210,200}})));
 
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.CoolingSystem.CompressionChillers.CompressionChiller compressionChiller(
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.CoolingSystem.CompressionChillers.CompressionChiller compressionChiller(
     WaterCooled=TechnicalConfiguration.WaterCooledCompressionChiller,
     IsUsed=true,
     ContControl=TechnicalConfiguration.ContControl,
@@ -67,7 +67,7 @@ model TurningMachine
     T_target_coldWater=TechnicalConfiguration.T_target_coldWater) annotation (Placement(transformation(extent={{-40,72},{-20,92}})));
                                                                                                                //Anpassung des Parameterbezugs,
 
-  ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.CoolingSystem.CompressionChillers.CompressionChiller_onePort compressionChiller_onePort(
+  ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.CoolingSystem.CompressionChillers.CompressionChiller_onePort compressionChiller_onePort(
     controllerType=Modelica.Blocks.Types.SimpleController.PI,
     IsUsed=true,
     ContControl=TechnicalConfiguration.ContControl,

@@ -3,11 +3,16 @@ model Floor
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a Outside annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a Inside annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor thermalConductor(G=deviceData.G)
-                                                                             annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+                                                                             annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   replaceable parameter ThermalIntegrationLib.FactoryBuilding.BuildingEnvelope.Records.FloorProperties deviceData constrainedby ThermalIntegrationLib.FactoryBuilding.BuildingEnvelope.Records.FloorProperties annotation (__Dymola_choicesAllMatching=true);
+  Modelica.Thermal.HeatTransfer.Components.ThermalConductor thermalConductor1(G=deviceData.G)
+                                                                             annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=deviceData.C) annotation (Placement(transformation(extent={{-10,0},{10,22}})));
 equation
-  connect(thermalConductor.port_b, Inside) annotation (Line(points={{10,0},{100,0}}, color={191,0,0}));
-  connect(thermalConductor.port_a, Outside) annotation (Line(points={{-10,0},{-100,0}}, color={191,0,0}));
+  connect(thermalConductor.port_b, Inside) annotation (Line(points={{60,0},{100,0}}, color={191,0,0}));
+  connect(thermalConductor1.port_a, Outside) annotation (Line(points={{-60,0},{-100,0}}, color={191,0,0}));
+  connect(thermalConductor1.port_b, heatCapacitor.port) annotation (Line(points={{-40,0},{0,0}}, color={191,0,0}));
+  connect(heatCapacitor.port, thermalConductor.port_a) annotation (Line(points={{0,0},{40,0}}, color={191,0,0}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p align=\"justify\"><b><span style=\"font-size: 20pt;\">Description of the Wall Modeling Approach</span></b></p>

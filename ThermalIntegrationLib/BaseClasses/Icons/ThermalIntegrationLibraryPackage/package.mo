@@ -1,6 +1,6 @@
 within ThermalIntegrationLib.BaseClasses.Icons;
 package ThermalIntegrationLibraryPackage
-  
+
 annotation (Icon(graphics={                                               Bitmap(
           extent={{-100,-100},{100,100}},
           imageSource=

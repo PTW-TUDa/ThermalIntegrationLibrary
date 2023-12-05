@@ -2,7 +2,7 @@ within ThermalIntegrationLib.ProductionEquipment.MachineTools.Example;
 model Test_TurningMachine
   extends Modelica.Icons.Example;
   inner ThermalIntegrationLib.BaseClasses.SystemEnergyManager sem(useBuilding=false) annotation (Placement(transformation(extent={{70,70},{90,90}})));
-  TurningMachine.TurningMachine eiB_MachineTool(TechnicalConfiguration(CentralColdWater=false)) annotation (Placement(transformation(extent={{-30,-34},{10,6}})));
+  TurningMachine turningMachine annotation (Placement(transformation(extent={{-18,-20},{22,20}})));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=false)),
     Diagram(coordinateSystem(preserveAspectRatio=false)),
