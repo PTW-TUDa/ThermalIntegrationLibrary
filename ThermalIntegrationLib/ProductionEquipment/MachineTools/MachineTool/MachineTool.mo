@@ -1,5 +1,5 @@
 within ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool;
-model TurningMachine
+model MachineTool
   extends ThermalIntegrationLib.BaseClasses.BaseProductionEquipment(
     electricDemands=1,
     ID=1,
@@ -13,6 +13,9 @@ model TurningMachine
     operationModes=4);
   parameter Real tableProcessingProgramm[:,2]=[0,1; 86400,1]
                                                "Table which defines the sequence of processing programms (time = first column; processingProgramm = second column)";
+  replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.TechnicalConfiguration.TechnicalConfiguration_a TechnicalConfiguration
+      constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base annotation(choicesAllMatching=true);
+
   replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.Kugelspiel_OP10 ProcessingProgramm_1 constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.BaseClasses.ProcessingProgramm_base "Table which defines power demand of components during operating modes (operating mode = first column; power demand = following columns)"
     annotation (choicesAllMatching=true, Placement(transformation(extent={{-190,-190},{-170,-170}})));
   replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.Kugelspiel_OP20 ProcessingProgramm_2 constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.ProcessingProgramms.BaseClasses.ProcessingProgramm_base "Table which defines power demand of components during operating modes (operating mode = first column; power demand = following columns)"
@@ -155,4 +158,4 @@ equation
       Interval=10,
       __Dymola_Algorithm="Cvode"),
     __Dymola_experimentSetupOutput);
-end TurningMachine;
+end MachineTool;

@@ -1,4 +1,4 @@
-within ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.Records;
+within ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.TechnicalConfiguration.BaseClasses;
 record TechnicalConfiguration_base
   extends Modelica.Icons.Record;
   parameter Modelica.SIunits.HeatCapacity C_MachineTool "Heat capacity of machine tool" annotation(Dialog(tab = "Thermal system properties"));

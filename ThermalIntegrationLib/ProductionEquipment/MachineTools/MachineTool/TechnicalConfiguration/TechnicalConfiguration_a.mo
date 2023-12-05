@@ -1,7 +1,7 @@
-within ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool;
-record TechnicalConfiguration
+within ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.TechnicalConfiguration;
+record TechnicalConfiguration_a
   extends Modelica.Icons.Record;
-  extends ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.Records.TechnicalConfiguration_base(
+  extends ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base(
     T_target_ControlCabinet=293.15,
     T_target_MachineTool=293.15,
     T_target_coolWater=303.15,
@@ -19,4 +19,4 @@ record TechnicalConfiguration
     //DecentralCoolingLubricantCooling=false,"
     //WaterCooledControlCabinet=false,"
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
-end TechnicalConfiguration;
+end TechnicalConfiguration_a;
