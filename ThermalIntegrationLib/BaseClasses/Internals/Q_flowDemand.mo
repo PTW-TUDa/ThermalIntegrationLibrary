@@ -1,6 +1,5 @@
 within ThermalIntegrationLib.BaseClasses.Internals;
 model Q_flowDemand
-  extends Modelica.Icons.TypeReal;
 
   parameter Integer operationModes;
 

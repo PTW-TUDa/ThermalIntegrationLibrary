@@ -1,6 +1,6 @@
 within ThermalIntegrationLib.BaseClasses.Internals;
 model SemPowerPort
-  extends Modelica.Icons.TypeReal;
+
   SI.HeatFlowRate coolingPower=sum(coolingPowerPort[1:end].Power);
   SI.HeatFlowRate heatingPower=sum(heatingPowerPort[1:end].Power);
   SI.Power electricPower=sum(electricPowerPort[1:end].Power);
