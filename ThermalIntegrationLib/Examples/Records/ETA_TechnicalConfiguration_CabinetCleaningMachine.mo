@@ -15,5 +15,8 @@ record ETA_TechnicalConfiguration_CabinetCleaningMachine
     d_ins=0,
     lambda_ins=0.04);
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-        coordinateSystem(preserveAspectRatio=false)));
+        coordinateSystem(preserveAspectRatio=false)),
+    Documentation(info="<html>
+<p>Values are taken from [3] and [4].</p>
+</html>"));
 end ETA_TechnicalConfiguration_CabinetCleaningMachine;

@@ -18,5 +18,8 @@ record ETA_TechnicalConfiguration_TurningMachine
     lambda_decentral=127.12);
     //DecentralCoolingLubricantCooling=false,"
     //WaterCooledControlCabinet=false,"
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
+    Documentation(info="<html>
+<p>Values are taken from [3] and [4].</p>
+</html>"));
 end ETA_TechnicalConfiguration_TurningMachine;

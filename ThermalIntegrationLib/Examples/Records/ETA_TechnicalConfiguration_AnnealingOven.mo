@@ -34,5 +34,8 @@ record ETA_TechnicalConfiguration_AnnealingOven
   m_workpiece_carrier=50,
   cp_workpiece_carrier=500,
   alpha_forced=250);
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
+    Documentation(info="<html>
+<p>Values are taken from [3] and [4].</p>
+</html>"));
 end ETA_TechnicalConfiguration_AnnealingOven;

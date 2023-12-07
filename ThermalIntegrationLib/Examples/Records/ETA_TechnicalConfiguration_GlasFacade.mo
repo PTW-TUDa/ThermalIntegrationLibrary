@@ -8,5 +8,8 @@ record ETA_TechnicalConfiguration_GlasFacade
   m=11000 "220* m^2 with a thickness of 0.02m and a density of 2500kg/m^3",
   cp=720,
   C=7920000);
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
+    Documentation(info="<html>
+<p>Values are taken from [3] and [4].</p>
+</html>"));
 end ETA_TechnicalConfiguration_GlasFacade;
