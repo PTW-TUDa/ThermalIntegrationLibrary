@@ -1,0 +1,4 @@
+within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.CabinetCleaningMachine;
+package TechnicalConfiguration
+
+end TechnicalConfiguration;

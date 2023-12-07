@@ -2,9 +2,10 @@ within ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.Coo
 package Data
 
   package BaseClasses
+   extends Modelica.Icons.RecordsPackage;
 
-    record CompressionChillerProperties
-      "Basic parameter record for compression chiller models"
+    record CompressionChillerProperties "Basic parameter record for compression chiller models"
+      extends Modelica.Icons.Record;
 
       //## PARAMETERS ##
 
@@ -48,6 +49,7 @@ package Data
   end BaseClasses;
 
   record Viessmann_Vitocal350G_BWC351A07
+    extends Modelica.Icons.Record;
     extends CompressionChillers.Data.BaseClasses.CompressionChillerProperties(
       P_el_nom=3600,
       P_th_cool_nom=12000,

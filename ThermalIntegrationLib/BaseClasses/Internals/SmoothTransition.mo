@@ -123,6 +123,8 @@ end when;
 end SmoothTransition;
 
 function smoothTransition
+  extends Modelica.Icons.Function;
+
   input Real x;
   input Real transitionPoint=1;
   input Real transitionLength=1;

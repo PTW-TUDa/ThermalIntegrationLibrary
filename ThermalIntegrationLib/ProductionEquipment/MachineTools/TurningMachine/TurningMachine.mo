@@ -65,16 +65,14 @@ model TurningMachine
     WaterCooled=TechnicalConfiguration.WaterCooledCompressionChiller,
     IsUsed=true,
     ContControl=TechnicalConfiguration.ContControl,
-    T_flow=TechnicalConfiguration.T_target_coldWater - 5,
-    T_target_coldWater=TechnicalConfiguration.T_target_coldWater) annotation (Placement(transformation(extent={{-40,72},{-20,92}})));
+    T_flow=TechnicalConfiguration.T_target_coldWater - 5) annotation (Placement(transformation(extent={{-40,72},{-20,92}})));
                                                                                                                //Anpassung des Parameterbezugs,
 
   ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.CoolingSystem.CompressionChillers.CompressionChiller_onePort compressionChiller_onePort(
     controllerType=Modelica.Blocks.Types.SimpleController.PI,
     IsUsed=true,
     ContControl=TechnicalConfiguration.ContControl,
-    T_flow=TechnicalConfiguration.T_target_coldWater - 5,
-    T_target_coldWater=TechnicalConfiguration.T_target_coldWater) annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
+    T_flow=TechnicalConfiguration.T_target_coldWater - 5) annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
 
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature prescribedTemperature annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -124,12 +122,14 @@ equation
   connect(integerExpression.y, processController.OperatingMode) annotation (Line(points={{-149,10},{-118,10}},                   color={255,127,0}));
   connect(integerTable.y, processController.ProcessingProgramm) annotation (Line(points={{-151,-10},{-118,-10}}, color={255,127,0}));
   connect(drives.P_el, DC.u[1]) annotation (Line(points={{-19,-80},{-6,-80}}, color={0,0,127}));
-  connect(coolingLubricantSystem.P_el, sum.u[1]) annotation (Line(points={{-19,0},{-6,0},{-6,2.1}}, color={0,0,127}));
-  connect(hydraulicSystem.P_el, sum.u[2]) annotation (Line(points={{-19,-40},{-10,-40},{-10,-4},{-6,-4},{-6,-2.1}}, color={0,0,127}));
+  connect(coolingLubricantSystem.P_el, sum.u[1]) annotation (Line(points={{-19,0},{-6,0},{-6,-1.05}},
+                                                                                                    color={0,0,127}));
+  connect(hydraulicSystem.P_el, sum.u[2]) annotation (Line(points={{-19,-40},{-10,-40},{-10,-4},{-6,-4},{-6,1.05}}, color={0,0,127}));
   connect(sum.y, controlCabinet.u) annotation (Line(points={{7.02,0},{18,0}}, color={0,0,127}));
-  connect(controlCabinet.P_el, AC_DC.u[1]) annotation (Line(points={{41,-5},{60,-5},{60,-2.1}},
+  connect(controlCabinet.P_el, AC_DC.u[1]) annotation (Line(points={{41,-5},{60,-5},{60,1.05}},
                                                                                               color={0,0,127}));
-  connect(DC.y, AC_DC.u[2]) annotation (Line(points={{7.02,-80},{54,-80},{54,2.1},{60,2.1}}, color={0,0,127}));
+  connect(DC.y, AC_DC.u[2]) annotation (Line(points={{7.02,-80},{54,-80},{54,-1.05},{60,-1.05}},
+                                                                                             color={0,0,127}));
   connect(transferUnit2.primary, centralColdWater.consumption) annotation (Line(points={{100,100},{120,100}}, color={191,0,0}));
   connect(transferUnit3.primary, centralCoolWater.consumption) annotation (Line(points={{100,120},{120,120}}, color={191,0,0}));
   connect(thermalSystem.hall, dissipation.port_a) annotation (Line(points={{140,-10},{180,-10},{180,190},{190,190}}, color={191,0,0}));

@@ -5,8 +5,8 @@ partial model TurningMachine
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0},
           lineThickness=0.5,
-          fillColor={215,215,215},
-          fillPattern=FillPattern.None),
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
         Rectangle(
           extent={{-100,88},{-50,2}},
           lineColor={0,0,0},

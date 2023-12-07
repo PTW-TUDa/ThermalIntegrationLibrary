@@ -2,6 +2,12 @@ within ThermalIntegrationLib.BaseClasses.Icons;
 partial model BaseProductionEquipment
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Rectangle(
+          extent={{-100,100},{100,-100}},
+          lineColor={0,0,0},
+          lineThickness=0.5,
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
           extent={{-50,30},{30,-50}},
           lineColor={0,0,0},
           lineThickness=0.5,
@@ -12,12 +18,6 @@ partial model BaseProductionEquipment
           lineColor={0,0,0},
           fillPattern=FillPattern.Solid,
           fillColor={215,215,215}),
-        Rectangle(
-          extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
-          lineThickness=0.5,
-          fillColor={215,215,215},
-          fillPattern=FillPattern.None),
         Polygon(
           points={{30,30},{50,50},{50,-30},{30,-50},{30,30}},
           lineColor={0,0,0},

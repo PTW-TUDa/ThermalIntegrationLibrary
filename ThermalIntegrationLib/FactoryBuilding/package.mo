@@ -1,4 +1,4 @@
 within ThermalIntegrationLib;
 package FactoryBuilding
-  extends Modelica.Icons.Package;
+  extends ThermalIntegrationLib.BaseClasses.Icons.FactoryBuildingPackage;
 end FactoryBuilding;

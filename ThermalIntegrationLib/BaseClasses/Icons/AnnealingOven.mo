@@ -2,6 +2,12 @@ within ThermalIntegrationLib.BaseClasses.Icons;
 partial model AnnealingOven
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Rectangle(
+          extent={{-100,100},{100,-100}},
+          lineColor={0,0,0},
+          lineThickness=0.5,
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
           extent={{-100,60},{10,-60}},
           lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
@@ -51,11 +57,5 @@ partial model AnnealingOven
           lineColor={0,0,0},
           lineThickness=0.5,
           fillColor={0,0,0},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
-          lineThickness=0.5,
-          fillColor={215,215,215},
-          fillPattern=FillPattern.None)}),                       Diagram(coordinateSystem(preserveAspectRatio=false)));
+          fillPattern=FillPattern.Solid)}),                      Diagram(coordinateSystem(preserveAspectRatio=false)));
 end AnnealingOven;

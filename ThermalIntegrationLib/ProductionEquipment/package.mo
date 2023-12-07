@@ -1,5 +1,5 @@
 within ThermalIntegrationLib;
 package ProductionEquipment
-  extends Modelica.Icons.Package;
+  extends ThermalIntegrationLib.BaseClasses.Icons.ProductionEquipmentPackage;
 
 end ProductionEquipment;

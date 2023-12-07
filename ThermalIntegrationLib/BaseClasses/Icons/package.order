@@ -3,9 +3,9 @@ SystemEnergyManager
 BaseProductionEquipment
 BldSystemEnergyManager
 BaseFactoryBuilding
-ProductionEquipment
-GenericProcesses
 TurningMachine
 AnnealingOven
 CleaningMachines
 ThermalIntegrationLibraryPackage
+ProductionEquipmentPackage
+FactoryBuildingPackage

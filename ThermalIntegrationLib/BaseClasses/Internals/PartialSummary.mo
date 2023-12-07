@@ -1,5 +1,6 @@
 within ThermalIntegrationLib.BaseClasses.Internals;
 partial record PartialSummary "example summary record"
+  extends Modelica.Icons.Record;
   // example can be also found here: Buildings.ThermalZones.Detailed.Validation.BESTEST.Cases6xx.Case600 using Buildings.ThermalZones.Detailed.Validation.BESTEST.Data.ResultSummary
   Modelica.Units.SI.Temperature T_in "Temperature level at input";
   Modelica.Units.SI.Temperature T_out "Temperature level at output";

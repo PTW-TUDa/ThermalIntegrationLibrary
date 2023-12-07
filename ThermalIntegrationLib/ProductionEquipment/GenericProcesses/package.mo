@@ -1,5 +1,5 @@
 within ThermalIntegrationLib.ProductionEquipment;
 package GenericProcesses
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.UtilitiesPackage;
 
 end GenericProcesses;

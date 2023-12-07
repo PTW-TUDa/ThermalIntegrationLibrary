@@ -1,5 +1,6 @@
 within ThermalIntegrationLib.BaseClasses.Internals;
 model ElectricDemand
+  extends Modelica.Icons.TypeReal;
   parameter Integer operationModes;
 
   input Real[operationModes] Power annotation(Dialog(enable=true));

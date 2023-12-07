@@ -1,0 +1,4 @@
+within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.CabinetCleaningMachine;
+package Batches
+
+end Batches;

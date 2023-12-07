@@ -1,15 +1,12 @@
+Q_flowDemand
 SemPowerPort
-Cooling_Power
-Heating_Power
-Electric_Power
 Power
+ElectricDemand
 ElectricPowerPort
 CoolingPowerPort
 HeatingPowerPort
 DissipationPowerPort
 BuildingPort
-Q_flowDemand
-ElectricDemand
 ControlUnit
 SmoothTransition
 smoothTransition

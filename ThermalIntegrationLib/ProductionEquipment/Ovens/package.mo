@@ -239,41 +239,6 @@ package Ovens
 </html>"));
       end ThermalSystem;
 
-      model Test_ThermalSystem
-        ThermalSystem thermalSystem annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
-        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(T=313.15) annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
-        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature1(T=293.15) annotation (Placement(transformation(extent={{60,0},{40,20}})));
-        Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor temperatureSensor annotation (Placement(transformation(extent={{-60,-50},{-80,-30}})));
-        Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow prescribedHeatFlow annotation (Placement(transformation(extent={{-80,-130},{-60,-110}})));
-        Modelica.Blocks.Continuous.LimPID PID(
-          controllerType=Modelica.Blocks.Types.SimpleController.P,
-          k=500000,
-          yMax=1,
-          yMin=0)      annotation (Placement(transformation(extent={{-144,-22},{-124,-2}})));
-        Modelica.Blocks.Sources.Constant const(k=0)            annotation (Placement(transformation(extent={{-192,-22},{-172,-2}})));
-        Modelica.Blocks.Sources.BooleanPulse door_closed(width=90, period=3600) annotation (Placement(transformation(extent={{62,-80},{42,-60}})));
-        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature2(T=293.15) annotation (Placement(transformation(extent={{90,-10},{70,10}})));
-        Modelica.Blocks.Sources.Pulse pulse(
-          amplitude=50000,
-          period=20000,
-          offset=10000) annotation (Placement(transformation(extent={{-120,-130},{-100,-110}})));
-        Modelica.Blocks.Sources.RealExpression realExpression(y=373.15 - temperatureSensor.T) annotation (Placement(transformation(extent={{-180,-50},{-160,-30}})));
-      equation
-        connect(fixedTemperature.port, thermalSystem.wall_loss) annotation (Line(points={{-10,50},{-10,36},{-10,20},{0,20}},
-                                                                                                             color={191,0,0}));
-        connect(temperatureSensor.port, thermalSystem.heating) annotation (Line(points={{-60,-40},{-30,-40},{-30,-10},{-20,-10}},
-                                                                                                                              color={191,0,0}));
-        connect(door_closed.y, thermalSystem.door_closed) annotation (Line(points={{41,-70},{0,-70},{0,-22}}, color={255,0,255}));
-        connect(fixedTemperature1.port, thermalSystem.radiation_loss) annotation (Line(points={{40,10},{30,10},{30,0},{20,0}},
-                                                                                                                 color={191,0,0}));
-        connect(fixedTemperature2.port, thermalSystem.door) annotation (Line(points={{70,0},{20,0}}, color={191,0,0}));
-        connect(pulse.y, prescribedHeatFlow.Q_flow) annotation (Line(points={{-99,-120},{-80,-120}}, color={0,0,127}));
-        connect(prescribedHeatFlow.port, thermalSystem.heating) annotation (Line(points={{-60,-120},{-40,-120},{-40,-10},{-20,-10}},
-                                                                                                                                 color={191,0,0}));
-        connect(PID.u_s, const.y) annotation (Line(points={{-146,-12},{-171,-12}}, color={0,0,127}));
-        connect(realExpression.y, PID.u_m) annotation (Line(points={{-159,-40},{-134,-40},{-134,-24}}, color={0,0,127}));
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
-      end Test_ThermalSystem;
     end ThermalSystem;
 
     package HeatingSystem
@@ -1702,43 +1667,6 @@ package Ovens
         annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
       end TechnicalConfiguration_a;
 
-      record TechnicalConfiguration_IVA_RH_655
-        extends ThermalIntegrationLib.ProductionEquipment.Ovens.AnnealingOven.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base(
-        t_door=0.1,
-        use_heating_heat_recovery=true,
-        use_quenching_heat_recovery=true,
-        T_init_door=323.15,
-        T_init_wall=323.15,
-        T_init_workpiece=293.15,
-        T_init_retort=373.15,
-        T_init_air=373.15,
-        T_target_heating_heat_recovery=353.15,
-        T_target_quenching_heat_recovery=353.15,
-        T_target_gasketcooling=313.15,
-        eta_f=0.9,
-        P_th_nom_heating=100000,
-        P_el_nom_quenching=7500,
-        m_flow_nom_quenching=5.5,
-        P_th_nom_gasket_cooling=15000,
-        rho_wall=2000,
-        lambda_wall=1,
-        cp_wall=1000,
-        t_wall=0.1,
-        A_wall=45,
-        rho_door=2000,
-        lambda_door=1,
-        cp_door=1000,
-        A_door=3,
-        m_retort=200,
-        cp_retort=500,
-        v_air=1,
-        m_workpiece=50,
-        cp_workpiece=500,
-        m_workpiece_carrier=50,
-        cp_workpiece_carrier=500,
-        alpha_forced=250);
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
-      end TechnicalConfiguration_IVA_RH_655;
     end TechnicalConfiguration;
 
     package WorkpieceHallDissipation
@@ -2122,13 +2050,13 @@ package Ovens
       connect(realExpression8.y, wasteHeatRecovery.T_air) annotation (Line(points={{-119,-130},{-112,-130},{-112,-125}},
                                                                                                                       color={0,0,127}));
       connect(dummyGasketcooling.gasket_cooling, thermalSystem.door_loss) annotation (Line(points={{-90,170},{60,170},{60,10}},   color={191,0,0}));
-      connect(heaterUnit.P_final, mainConnection.u[1]) annotation (Line(points={{-89,-75},{-50,-75},{-50,3.15},{-44,3.15}},
+      connect(heaterUnit.P_final, mainConnection.u[1]) annotation (Line(points={{-89,-75},{-50,-75},{-50,-1.575},{-44,-1.575}},
                                                                                                                          color={0,0,127}));
-      connect(dummyVacuumSystem.P_el, mainConnection.u[2]) annotation (Line(points={{-89,90},{-50,90},{-50,1.05},{-44,1.05}},
+      connect(dummyVacuumSystem.P_el, mainConnection.u[2]) annotation (Line(points={{-89,90},{-50,90},{-50,-0.525},{-44,-0.525}},
                                                                                                                            color={0,0,127}));
-      connect(dummyGascirculationSystem.P_el, mainConnection.u[3]) annotation (Line(points={{-89,130},{-50,130},{-50,-1.05},{-44,-1.05}},
+      connect(dummyGascirculationSystem.P_el, mainConnection.u[3]) annotation (Line(points={{-89,130},{-50,130},{-50,0.525},{-44,0.525}},
                                                                                                                                        color={0,0,127}));
-      connect(quenchingUnit.P_el, mainConnection.u[4]) annotation (Line(points={{-89,5},{-50,5},{-50,-3.15},{-44,-3.15}},
+      connect(quenchingUnit.P_el, mainConnection.u[4]) annotation (Line(points={{-89,5},{-50,5},{-50,1.575},{-44,1.575}},
                                                                                                                        color={0,0,127}));
       connect(integerExpression.y, processController.OperatingMode) annotation (Line(points={{-261,8},{-250,8},{-250,8.5},{-242,8.5}},
                                                                                                                                      color={255,127,0}));
@@ -2138,18 +2066,19 @@ package Ovens
       connect(dummyGasketcooling.central_cooling, thermalCollector.port_a[1]) annotation (Line(points={{-100,180},{-100,190},{160,190}},
                                                                                                                                        color={191,0,0}));
       connect(thermalCollector1.port_b, heating_system.port) annotation (Line(points={{180,150},{220,150}}, color={191,0,0}));
-      connect(wasteHeatRecovery1.recovered, thermalCollector1.port_a[1]) annotation (Line(points={{-90,55},{-20,55},{-20,150},{159.5,150}},
+      connect(wasteHeatRecovery1.recovered, thermalCollector1.port_a[1]) annotation (Line(points={{-90,55},{-20,55},{-20,150},{160.25,150}},
                                                                                                                                           color={191,0,0}));
-      connect(wasteHeatRecovery.recovered, thermalCollector1.port_a[2]) annotation (Line(points={{-90,-125},{250,-125},{250,120},{160.5,120},{160.5,150}}, color={191,0,0}));
+      connect(wasteHeatRecovery.recovered, thermalCollector1.port_a[2]) annotation (Line(points={{-90,-125},{250,-125},{250,120},{159.75,120},{159.75,150}},
+                                                                                                                                                           color={191,0,0}));
       connect(thermalCollector2.port_b, hall.port) annotation (Line(points={{180,-6.66134e-16},{200,-6.66134e-16},{200,0},{220,0}}, color={191,0,0}));
-      connect(wasteHeatRecovery1.dissipated, thermalCollector2.port_a[1]) annotation (Line(points={{-90,45},{0,45},{0,70},{150,70},{150,8.88178e-16},{159.2,8.88178e-16}},    color={191,0,0}));
-      connect(thermalSystem.wall_loss, thermalCollector2.port_a[2]) annotation (Line(points={{40,20},{40,60},{140,60},{140,0},{159.6,0}},    color={191,0,0}));
+      connect(wasteHeatRecovery1.dissipated, thermalCollector2.port_a[1]) annotation (Line(points={{-90,45},{0,45},{0,70},{150,70},{150,0},{160.4,8.88178e-16}},              color={191,0,0}));
+      connect(thermalSystem.wall_loss, thermalCollector2.port_a[2]) annotation (Line(points={{40,20},{40,60},{140,60},{140,0},{160.2,0}},    color={191,0,0}));
       connect(thermalSystem.radiation_loss, thermalCollector2.port_a[3]) annotation (Line(points={{60,0},{160,0}},     color={191,0,0}));
-      connect(wasteHeatRecovery.dissipated, thermalCollector2.port_a[4]) annotation (Line(points={{-90,-115},{130,-115},{130,0},{160.4,0}},  color={191,0,0}));
+      connect(wasteHeatRecovery.dissipated, thermalCollector2.port_a[4]) annotation (Line(points={{-90,-115},{130,-115},{130,0},{159.8,0}},  color={191,0,0}));
       connect(realExpression9.y, wasteHeatRecovery.T_hall) annotation (Line(points={{-119,-120},{-112,-120}}, color={0,0,127}));
       connect(realExpression7.y, wasteHeatRecovery.T_fluid_inlet) annotation (Line(points={{-119,-110},{-112,-110},{-112,-115}}, color={0,0,127}));
       connect(realExpression10.y, wasteHeatRecovery1.T_hall) annotation (Line(points={{-119,50},{-112,50}}, color={0,0,127}));
-      connect(workpieceHallDissipation.port_a, thermalCollector2.port_a[5]) annotation (Line(points={{-90,-48},{152,-48},{152,0},{160.8,0}}, color={191,0,0}));
+      connect(workpieceHallDissipation.port_a, thermalCollector2.port_a[5]) annotation (Line(points={{-90,-48},{152,-48},{152,0},{159.6,0}}, color={191,0,0}));
       connect(workpieceHallDissipation.T_workpiece, realExpression11.y) annotation (Line(points={{-112,-55.8},{-116,-55.8},{-116,-66},{-119,-66}},
                                                                                                                                                color={0,0,127}));
       connect(T_workpiece.port, thermalSystem.workpiece_temp) annotation (Line(points={{70,-28},{66,-28},{66,-10},{60,-10}}, color={191,0,0}));

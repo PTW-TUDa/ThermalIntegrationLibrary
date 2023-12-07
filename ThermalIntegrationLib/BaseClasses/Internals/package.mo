@@ -1,5 +1,5 @@
 within ThermalIntegrationLib.BaseClasses;
 package Internals
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.InterfacesPackage;
 
 end Internals;

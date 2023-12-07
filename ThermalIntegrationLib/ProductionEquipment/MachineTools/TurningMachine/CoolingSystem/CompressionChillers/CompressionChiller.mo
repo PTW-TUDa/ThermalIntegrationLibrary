@@ -17,7 +17,11 @@ model CompressionChiller
                                                              annotation (Dialog(group="Control Parameter"));
 
   parameter Modelica.Units.SI.ThermodynamicTemperature T_flow=TechnicalConfiguration.T_target_coldWater - 5 "Flow temperature of cooling system";
-  parameter Modelica.Units.SI.ThermodynamicTemperature T_target_coldWater=TechnicalConfiguration.T_target_coldWater;
+
+   //TechnicalConfiguration
+  replaceable parameter ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.TechnicalConfiguration.TechnicalConfiguration_a
+  TechnicalConfiguration constrainedby ThermalIntegrationLib.ProductionEquipment.MachineTools.TurningMachine.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base annotation (choicesAllMatching=true);
+
 
   // deviceData
   replaceable parameter Data.Viessmann_Vitocal350G_BWC351A07 deviceData
@@ -145,14 +149,14 @@ model CompressionChiller
     annotation (Placement(transformation(extent={{-6,-6},{6,6}},
         rotation=270,
         origin={-66,36})));
-  Controllers.disk_control_hysteresis_Frank disk_control_hysteresis_Frank(T_target_coldWater=T_target_coldWater)
+  Controllers.disk_control_hysteresis_Frank disk_control_hysteresis_Frank(T_target_coldWater=T_flow)
     annotation (Placement(transformation(extent={{-96,-26},{-84,-14}})));
   Modelica.Blocks.Logical.Switch switch2
     annotation (Placement(transformation(extent={{-4,-4},{4,4}},
         rotation=0,
         origin={-72,0})));
   Controllers.PID_lim_Controller_TEva pID_lim_Controller_TEva(
-    T_target=T_target_coldWater,
+    T_target=T_flow,
     k=-0.8,
     Ti=600) annotation (Placement(transformation(extent={{-96,8},{-84,20}})));
   Modelica.Blocks.Logical.Switch switch4
@@ -248,7 +252,8 @@ equation
   connect(prePow.port, ColdWater)
     annotation (Line(points={{22,-78},{22,-100},{0,-100}}, color={191,0,0}));
   connect(TempColdIn.T, K2degC.Kelvin)
-    annotation (Line(points={{-66,-60},{-66,-24},{-61,-24}}, color={0,0,127}));
+    annotation (Line(points={{-66.8,-60},{-66.8,-24},{-61,-24}},
+                                                             color={0,0,127}));
   connect(conditionCheck.T_in_cool, K2degC.Kelvin) annotation (Line(points={{-48.6,-3.6},{-66,-3.6},{-66,-24},{-61,-24}},
                                              color={0,0,127}));
   connect(TempColdIn.port, ColdWater) annotation (Line(points={{-50,-60},{-42,
@@ -268,9 +273,9 @@ equation
                                                  color={191,0,0}));
   connect(s_u, s_u)
     annotation (Line(points={{110,78},{110,78}}, color={0,0,127}));
-  connect(TempHeatInCoolWater.T, switch1.u1) annotation (Line(points={{-28,60},{-61.2,60},{-61.2,43.2}},
+  connect(TempHeatInCoolWater.T, switch1.u1) annotation (Line(points={{-28.8,60},{-61.2,60},{-61.2,43.2}},
                                               color={0,0,127}));
-  connect(TempHeatInHall.T, switch1.u3) annotation (Line(points={{-28,84},{-70.8,84},{-70.8,43.2}},
+  connect(TempHeatInHall.T, switch1.u3) annotation (Line(points={{-28.8,84},{-70.8,84},{-70.8,43.2}},
                                      color={0,0,127}));
   connect(Hall, TempHeatInHall.port) annotation (Line(points={{0,100},{0,84},{-12,84}},
                                        color={191,0,0}));
@@ -303,8 +308,10 @@ equation
   connect(switch2.y, switch3.u1) annotation (Line(points={{-67.6,0},{-66,0},{-66,-8},{-62.8,-8},{-62.8,-6.8}}, color={0,0,127}));
   connect(conditionCheck.u, switch3.y) annotation (Line(points={{-48.6,0},{-54,0},{-54,-10},{-53.6,-10}}, color={0,0,127}));
   connect(switch3.u3, const3.y) annotation (Line(points={{-62.8,-13.2},{-66,-13.2},{-66,-18},{-69.6,-18}}, color={0,0,127}));
-  connect(TempColdIn.T, pID_lim_Controller_TEva.u) annotation (Line(points={{-66,-60},{-100,-60},{-100,14},{-96.6,14}}, color={0,0,127}));
-  connect(TempColdIn.T, disk_control_hysteresis_Frank.u) annotation (Line(points={{-66,-60},{-100,-60},{-100,-20},{-96.72,-20}}, color={0,0,127}));
+  connect(TempColdIn.T, pID_lim_Controller_TEva.u) annotation (Line(points={{-66.8,-60},{-100,-60},{-100,14},{-96.6,14}},
+                                                                                                                        color={0,0,127}));
+  connect(TempColdIn.T, disk_control_hysteresis_Frank.u) annotation (Line(points={{-66.8,-60},{-100,-60},{-100,-20},{-96.72,-20}},
+                                                                                                                                 color={0,0,127}));
   annotation (Diagram(coordinateSystem(extent={{-100,-100},{100,100}})), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}),                                                                                             graphics={
         Rectangle(
