@@ -1,6 +1,6 @@
 within ThermalIntegrationLib.Examples.Records;
 record ETA_TechnicalConfiguration_Walls
-  extends ThermalIntegrationLib.FactoryBuilding.BuildingElements.Records.WallProperties(
+  extends ThermalIntegrationLib.FactoryBuilding.ProductionHall.BuildingEnvelope.Records.WallProperties(
   length=40,
   width=11,
   k=0.225,

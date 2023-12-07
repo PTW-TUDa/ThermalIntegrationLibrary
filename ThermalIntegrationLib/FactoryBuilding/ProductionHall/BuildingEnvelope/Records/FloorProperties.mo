@@ -1,4 +1,4 @@
-within ThermalIntegrationLib.FactoryBuilding.BuildingElements.Records;
+within ThermalIntegrationLib.FactoryBuilding.ProductionHall.BuildingEnvelope.Records;
 record FloorProperties "Basic parameter record for floor elements"
   extends Modelica.Icons.Record;
   parameter SI.Length length "length of the floor";

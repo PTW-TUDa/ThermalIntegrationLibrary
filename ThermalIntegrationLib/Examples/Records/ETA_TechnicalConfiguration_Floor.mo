@@ -1,6 +1,6 @@
 within ThermalIntegrationLib.Examples.Records;
 record ETA_TechnicalConfiguration_Floor
-  extends ThermalIntegrationLib.FactoryBuilding.BuildingElements.Records.FloorProperties(
+  extends ThermalIntegrationLib.FactoryBuilding.ProductionHall.BuildingEnvelope.Records.FloorProperties(
   length=40,
   width=20,
   k=0.2,

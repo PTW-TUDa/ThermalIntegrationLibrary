@@ -1,4 +1,4 @@
-within ThermalIntegrationLib.FactoryBuilding.BuildingElements;
+within ThermalIntegrationLib.FactoryBuilding.ProductionHall.BuildingEnvelope;
 model FactoryBuilding
 
   //parameter
@@ -8,13 +8,12 @@ model FactoryBuilding
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature prescribedTemperature annotation (Placement(transformation(extent={{-56,22},{-36,42}})));
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature prescribedTemperature1 annotation (Placement(transformation(extent={{-54,-50},{-34,-30}})));
 
-  Roof roof(redeclare Examples.Records.ETA_TechnicalConfiguration_Roof deviceData) annotation (Placement(transformation(extent={{-24,70},{-4,90}})));
-  Wall wall(redeclare Examples.Records.ETA_TechnicalConfiguration_GlasFacade deviceData) annotation (Placement(transformation(extent={{-24,46},{-4,66}})));
-  Wall wall1(redeclare Examples.Records.ETA_TechnicalConfiguration_Walls deviceData) annotation (Placement(transformation(extent={{-24,22},{-4,42}})));
-  Wall wall2(redeclare Examples.Records.ETA_TechnicalConfiguration_Walls deviceData) annotation (Placement(transformation(extent={{-24,-2},{-4,18}})));
-  Wall wall3(redeclare Examples.Records.ETA_TechnicalConfiguration_GlasFacade deviceData) annotation (Placement(transformation(extent={{-24,-26},{-4,-6}})));
-  Floor floor(redeclare Examples.Records.ETA_TechnicalConfiguration_Floor deviceData) annotation (Placement(transformation(extent={{-24,-50},{-4,-30}})));
-
+  BuildingEnvelope.Roof roof(redeclare Examples.Records.ETA_TechnicalConfiguration_Roof deviceData) annotation (Placement(transformation(extent={{-24,70},{-4,90}})));
+  BuildingEnvelope.Wall wall(redeclare Examples.Records.ETA_TechnicalConfiguration_GlasFacade deviceData) annotation (Placement(transformation(extent={{-24,46},{-4,66}})));
+  BuildingEnvelope.Wall wall1(redeclare Examples.Records.ETA_TechnicalConfiguration_Walls deviceData) annotation (Placement(transformation(extent={{-24,22},{-4,42}})));
+  BuildingEnvelope.Wall wall2(redeclare Examples.Records.ETA_TechnicalConfiguration_Walls deviceData) annotation (Placement(transformation(extent={{-24,-2},{-4,18}})));
+  BuildingEnvelope.Wall wall3(redeclare Examples.Records.ETA_TechnicalConfiguration_GlasFacade deviceData) annotation (Placement(transformation(extent={{-24,-26},{-4,-6}})));
+  BuildingEnvelope.Floor floor(redeclare Examples.Records.ETA_TechnicalConfiguration_Floor deviceData) annotation (Placement(transformation(extent={{-24,-50},{-4,-30}})));
 
   Modelica.Blocks.Sources.Sine FloorTemperature(
     amplitude=10,
@@ -48,7 +47,6 @@ model FactoryBuilding
   Modelica.Blocks.Interfaces.RealOutput Q_flow "Heat flow from port_a to port_b as output signal" annotation (Placement(transformation(extent={{100,70},{120,90}})));
   Modelica.Thermal.HeatTransfer.Celsius.FromKelvin fromKelvin annotation (Placement(transformation(extent={{80,-26},{92,-14}})));
 equation
-
 
   connect(prescribedTemperature.port, roof.Outside) annotation (Line(points={{-36,32},{-28,32},{-28,80},{-24,80}},
                                                                                                                  color={191,0,0}));

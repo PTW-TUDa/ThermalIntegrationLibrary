@@ -1,4 +1,4 @@
 within ThermalIntegrationLib.FactoryBuilding;
-package BuildingElements
+package ProductionHall
   extends Modelica.Icons.VariantsPackage;
-end BuildingElements;
+end ProductionHall;

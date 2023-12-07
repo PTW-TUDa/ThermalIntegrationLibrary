@@ -1,4 +1,4 @@
-within ThermalIntegrationLib.FactoryBuilding.BuildingElements;
+within ThermalIntegrationLib.FactoryBuilding.ProductionHall;
 package Test
   extends Modelica.Icons.ExamplesPackage;
 

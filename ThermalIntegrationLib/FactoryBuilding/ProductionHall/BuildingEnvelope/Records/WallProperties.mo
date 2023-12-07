@@ -1,4 +1,4 @@
-within ThermalIntegrationLib.FactoryBuilding.BuildingElements.Records;
+within ThermalIntegrationLib.FactoryBuilding.ProductionHall.BuildingEnvelope.Records;
 record WallProperties "Basic parameter record for wall elements"
   extends Modelica.Icons.Record;
   parameter SI.Length length "length of the wall";

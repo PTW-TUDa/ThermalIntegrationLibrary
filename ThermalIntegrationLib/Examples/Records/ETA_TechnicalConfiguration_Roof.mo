@@ -1,6 +1,6 @@
 within ThermalIntegrationLib.Examples.Records;
 record ETA_TechnicalConfiguration_Roof
-  extends ThermalIntegrationLib.FactoryBuilding.BuildingElements.Records.RoofProperties(
+  extends ThermalIntegrationLib.FactoryBuilding.ProductionHall.BuildingEnvelope.Records.RoofProperties(
   length=40,
   width=20,
   k=0.2,
