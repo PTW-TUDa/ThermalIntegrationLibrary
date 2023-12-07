@@ -1,6 +1,6 @@
 within ThermalIntegrationLib.Examples.Records;
 record ETA_TechnicalConfiguration_GlasFacade
-  extends ThermalIntegrationLib.FactoryBuilding.BuildingEnvelope.Records.WallProperties(
+  extends ThermalIntegrationLib.FactoryBuilding.BuildingElements.Records.WallProperties(
   length=20,
   width=11,
   k=(0.23+1.1)*0.5 "glas with fleece and glas without fleece have a 50% share of the overall facade system",

@@ -50,8 +50,8 @@ model elTankHeating1
         origin={30,42},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Electrical.Analog.Basic.HeatingResistor heatingResistor(
-    R_ref=10,
+  Modelica.Electrical.Analog.Basic.Resistor heatingResistor(
+    R=10,
     T_ref=293.15,
     alpha=1/255) annotation (Placement(transformation(
         origin={-16,42},

@@ -1,8 +1,8 @@
 within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal.TankHeating;
 model thermSwitch_multi
   parameter Integer n(min=1)=2 "Number of collected heat flows port 2";
-  Modelica.SIunits.HeatFlowRate Q_flow[n];
-  Modelica.SIunits.TemperatureDifference dT[n];
+  Modelica.Units.SI.HeatFlowRate Q_flow[n];
+  Modelica.Units.SI.TemperatureDifference dT[n];
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in_1 annotation (Placement(transformation(extent={{-110,70},{-90,90}}),
         iconTransformation(extent={{-110,70},{-90,90}})));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in_2[n]

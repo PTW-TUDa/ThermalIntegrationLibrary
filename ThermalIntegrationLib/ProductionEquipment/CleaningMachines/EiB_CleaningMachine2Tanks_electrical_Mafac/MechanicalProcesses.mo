@@ -69,7 +69,7 @@ package MechanicalProcesses
     Modelica.Blocks.Interfaces.RealInput processTime annotation (Placement(transformation(extent={{-120,30},{-100,
               50}}), iconTransformation(extent={{-120,30},{-100,50}})));
   protected
-    Modelica.SIunits.Time timer;
+    Modelica.Units.SI.Time timer;
   initial equation
     pre(timer) = 0;
   equation

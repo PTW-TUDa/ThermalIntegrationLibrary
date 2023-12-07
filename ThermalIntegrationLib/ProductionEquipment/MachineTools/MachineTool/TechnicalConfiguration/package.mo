@@ -1,3 +1,0 @@
-within ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool;
-package TechnicalConfiguration
-end TechnicalConfiguration;

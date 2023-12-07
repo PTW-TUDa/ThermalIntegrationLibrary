@@ -1,7 +1,7 @@
 within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal.TankHeating;
 model thermOnOff
-  Modelica.SIunits.HeatFlowRate Q_flow;
-  Modelica.SIunits.TemperatureDifference dT;
+  Modelica.Units.SI.HeatFlowRate Q_flow;
+  Modelica.Units.SI.TemperatureDifference dT;
   Real k;
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b port_out annotation (Placement(transformation(extent={{90,-10},{110,10}})));

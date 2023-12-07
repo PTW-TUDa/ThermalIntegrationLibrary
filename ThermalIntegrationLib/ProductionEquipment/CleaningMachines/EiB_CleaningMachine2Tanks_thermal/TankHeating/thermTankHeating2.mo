@@ -1,12 +1,12 @@
 within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal.TankHeating;
 model thermTankHeating2
-  parameter Modelica.SIunits.Mass m_t2 "Mass of cleaning fluid tank 2";
-  parameter Modelica.SIunits.Area A_t2 "Surface area of tank 2";
-  parameter Modelica.SIunits.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
-  parameter Modelica.SIunits.Length d_ins "Thickness insulation (for no insulation set to 0)";
-  parameter Modelica.SIunits.ThermalConductivity lambda_ins "Thermal conductivity insulation";
-  parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
-  parameter Modelica.SIunits.Temperature T_lim "Minimum temperature of cleaning fluid";
+  parameter Modelica.Units.SI.Mass m_t2 "Mass of cleaning fluid tank 2";
+  parameter Modelica.Units.SI.Area A_t2 "Surface area of tank 2";
+  parameter Modelica.Units.SI.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
+  parameter Modelica.Units.SI.Length d_ins "Thickness insulation (for no insulation set to 0)";
+  parameter Modelica.Units.SI.ThermalConductivity lambda_ins "Thermal conductivity insulation";
+  parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
+  parameter Modelica.Units.SI.Temperature T_lim "Minimum temperature of cleaning fluid";
   parameter Integer tableWashing[:,1] "States when washing is active";
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor MT(C=m_t2*c_fluid, T(fixed=true, start=298.15))
     annotation (Placement(transformation(

@@ -35,8 +35,8 @@ controller")}),                                                    Diagram(coord
   end heatController;
 
   model thermSwitch
-    Modelica.SIunits.HeatFlowRate Q_flow;
-   Modelica.SIunits.TemperatureDifference dT;
+    Modelica.Units.SI.HeatFlowRate Q_flow;
+    Modelica.Units.SI.TemperatureDifference dT;
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in_1 annotation (Placement(transformation(extent={{-110,70},{-90,90}}),
           iconTransformation(extent={{-110,70},{-90,90}})));
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in_2 annotation (Placement(transformation(extent={{-112,-90},{-92,-70}}),
@@ -117,11 +117,11 @@ controller")}),             Diagram(coordinateSystem(preserveAspectRatio=false))
   end washingController;
 
   model thermTankHeating1
-    parameter Modelica.SIunits.Mass m_t1 "Mass of cleaning fluid tank 1";
-    parameter Modelica.SIunits.Area A_t1 "Surface area of tank 1";
-    parameter Modelica.SIunits.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
-    parameter Modelica.SIunits.Length d_ins "Thickness insulation";
-    parameter Modelica.SIunits.ThermalConductivity lambda_ins "Thermal conductivity insulation";
+    parameter Modelica.Units.SI.Mass m_t1 "Mass of cleaning fluid tank 1";
+    parameter Modelica.Units.SI.Area A_t1 "Surface area of tank 1";
+    parameter Modelica.Units.SI.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
+    parameter Modelica.Units.SI.Length d_ins "Thickness insulation";
+    parameter Modelica.Units.SI.ThermalConductivity lambda_ins "Thermal conductivity insulation";
     Modelica.Thermal.HeatTransfer.Components.HeatCapacitor MT(C=c_fluid*m_t1, T(fixed=true, start=298.15))
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -217,8 +217,8 @@ controller")}),             Diagram(coordinateSystem(preserveAspectRatio=false))
   end thermTankHeating1;
 
   model thermOnOff
-    Modelica.SIunits.HeatFlowRate Q_flow;
-    Modelica.SIunits.TemperatureDifference dT;
+    Modelica.Units.SI.HeatFlowRate Q_flow;
+    Modelica.Units.SI.TemperatureDifference dT;
     Real k;
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b port_out annotation (Placement(transformation(extent={{90,-10},{110,10}})));

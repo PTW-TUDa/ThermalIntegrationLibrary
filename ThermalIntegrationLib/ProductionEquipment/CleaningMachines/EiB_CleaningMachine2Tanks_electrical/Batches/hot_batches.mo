@@ -1,10 +1,10 @@
 within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_electrical.Batches;
 model hot_batches
-  parameter Modelica.SIunits.Mass m_batch "Mass of batch";
-  parameter Modelica.SIunits.HeatCapacity c_batch "Heat capacity of batch";
-  parameter Modelica.SIunits.Mass m_rack "Mass of batching rack";
-  parameter Modelica.SIunits.HeatCapacity c_rack "Heat capacity of batching rack";
-  parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
+  parameter Modelica.Units.SI.Mass m_batch "Mass of batch";
+  parameter Modelica.Units.SI.HeatCapacity c_batch "Heat capacity of batch";
+  parameter Modelica.Units.SI.Mass m_rack "Mass of batching rack";
+  parameter Modelica.Units.SI.HeatCapacity c_rack "Heat capacity of batching rack";
+  parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
   Modelica.Blocks.Interfaces.BooleanInput new_batch
     annotation (Placement(transformation(extent={{-140,-60},{-100,-20}}),iconTransformation(extent={{-140,
             -60},{-100,-20}})));

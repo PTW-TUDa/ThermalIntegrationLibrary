@@ -12,7 +12,7 @@ model EiB_CleaningMachine1Tank_thermal
     operationModes=3);
     parameter Integer tableProcessingProgramm[:,2]=[6,15; 3,80; 4,120; 5,320; 7,15]
                               "Washing programm (washing mode = first column, duration in s = second column)";
-    parameter Modelica.SIunits.Temperature T_heat=363.15 "Temperature level of (potential) heat network" annotation(Dialog(group = "Heating"));
+  parameter Modelica.Units.SI.Temperature T_heat=363.15 "Temperature level of (potential) heat network" annotation (Dialog(group="Heating"));
     parameter Real tableStates[:,2]=[1,0; 2,0; 3,5500; 4,1780; 5,1100; 6,0; 7,0]
                                                                          "State power definition for mechanical processes, heating power excluded (washing mode = first column, el. Power [W] = second column)";
     parameter Integer tableWashing[:,1]=[3] "States when washing is active";

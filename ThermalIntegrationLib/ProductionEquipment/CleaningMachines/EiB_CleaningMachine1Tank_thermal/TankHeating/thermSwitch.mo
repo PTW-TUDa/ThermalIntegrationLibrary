@@ -1,7 +1,7 @@
 within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal.TankHeating;
 model thermSwitch
-  Modelica.SIunits.HeatFlowRate Q_flow;
- Modelica.SIunits.TemperatureDifference dT;
+  Modelica.Units.SI.HeatFlowRate Q_flow;
+  Modelica.Units.SI.TemperatureDifference dT;
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in_1 annotation (Placement(transformation(extent={{-110,70},{-90,90}}),
         iconTransformation(extent={{-110,70},{-90,90}})));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in_2 annotation (Placement(transformation(extent={{-112,-90},{-92,-70}}),

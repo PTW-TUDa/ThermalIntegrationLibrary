@@ -69,7 +69,7 @@ package MechanicalProcesses
     Modelica.Blocks.Interfaces.IntegerInput state
       annotation (Placement(transformation(extent={{-120,40},{-100,60}}),   iconTransformation(extent={{-120,40},{-100,60}})));
   protected
-    Modelica.SIunits.Time timer;
+    Modelica.Units.SI.Time timer;
   initial equation
     pre(timer) = 0;
   equation

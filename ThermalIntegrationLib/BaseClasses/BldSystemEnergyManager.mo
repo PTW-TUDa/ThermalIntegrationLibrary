@@ -10,9 +10,9 @@ model BldSystemEnergyManager "Manages energy flows of machines and factory build
   //parameter Integer idPV[nPV](min=1,max=nBuildings) "IDs of the buildings with PV plant" annotation(dialog(enable=nPV>0));
   //parameter Boolean feedInOnly=false "Set to true if no self usage of PV electricity is desired" annotation(dialog(enable=nPV>0));
   // Annual demands
-  Modelica.SIunits.Heat annualHeatDemand[nBuildings](displayUnit="MWh") "Annual space heating demand of the buildings";
-  Modelica.SIunits.Heat annualCoolDemand[nBuildings](displayUnit="MWh") "Annual space cooling demand of the buildings";
-  Modelica.SIunits.Energy annualElectricDemand[nBuildings](displayUnit="MWh") "Annual building related electrical energy demand";
+  Modelica.Units.SI.Heat annualHeatDemand[nBuildings](displayUnit="MWh") "Annual space heating demand of the buildings";
+  Modelica.Units.SI.Heat annualCoolDemand[nBuildings](displayUnit="MWh") "Annual space cooling demand of the buildings";
+  Modelica.Units.SI.Energy annualElectricDemand[nBuildings](displayUnit="MWh") "Annual building related electrical energy demand";
   // Annual costs
   // Annual emissions
   // PV

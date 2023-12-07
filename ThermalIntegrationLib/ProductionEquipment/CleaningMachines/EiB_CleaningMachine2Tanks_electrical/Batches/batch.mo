@@ -1,9 +1,9 @@
 within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_electrical.Batches;
 model batch
-  parameter Modelica.SIunits.Mass m_batch "Mass of batch";
-  parameter Modelica.SIunits.HeatCapacity c_batch "Heat capacity of batch";
-  parameter Modelica.SIunits.Mass m_rack "Mass of batching rack";
-  parameter Modelica.SIunits.HeatCapacity c_rack "Heat capacity of batching rack";
+  parameter Modelica.Units.SI.Mass m_batch "Mass of batch";
+  parameter Modelica.Units.SI.HeatCapacity c_batch "Heat capacity of batch";
+  parameter Modelica.Units.SI.Mass m_rack "Mass of batching rack";
+  parameter Modelica.Units.SI.HeatCapacity c_rack "Heat capacity of batching rack";
   Real T_batch,
         Q_dot_batch(start=0);
   Modelica.Blocks.Interfaces.BooleanInput t1_state annotation (Placement(transformation(extent={{-160,110},{-140,130}}),

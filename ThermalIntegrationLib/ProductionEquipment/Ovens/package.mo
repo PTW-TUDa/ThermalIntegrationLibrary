@@ -8,12 +8,12 @@ package Ovens
     package Wall
       model Wall
         parameter Integer n = 3 "number of discrete wall segments";
-        parameter Modelica.SIunits.Density rho_wall "density of wall material";
-        parameter Modelica.SIunits.ThermalConductivity lambda_wall "thermal conductivity of wall material";
-        parameter Modelica.SIunits.SpecificHeatCapacity cp_wall "specific heat capacity of wall material";
-        parameter Modelica.SIunits.Length t_wall "thickness of wall material";
-        parameter Modelica.SIunits.Area A_wall "area of wall";
-        parameter Modelica.SIunits.ThermodynamicTemperature T_start_wall "start temperature of wall material";
+        parameter Modelica.Units.SI.Density rho_wall "density of wall material";
+        parameter Modelica.Units.SI.ThermalConductivity lambda_wall "thermal conductivity of wall material";
+        parameter Modelica.Units.SI.SpecificHeatCapacity cp_wall "specific heat capacity of wall material";
+        parameter Modelica.Units.SI.Length t_wall "thickness of wall material";
+        parameter Modelica.Units.SI.Area A_wall "area of wall";
+        parameter Modelica.Units.SI.ThermodynamicTemperature T_start_wall "start temperature of wall material";
 
         Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor[n](C=cp_wall*(rho_wall*A_wall*t_wall)/n,
                                                                                                     T(start=T_start_wall)) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
@@ -278,7 +278,7 @@ package Ovens
 
     package HeatingSystem
       model HeaterUnit
-        parameter Modelica.SIunits.Power P_th_nom "Nominal power of heater unit";
+        parameter Modelica.Units.SI.Power P_th_nom "Nominal power of heater unit";
         parameter Real eta_f "Firing efficiency of heater unit";
         Modelica.Blocks.Interfaces.RealInput u "Regulating variable of heater unit [0,1]"
                                                annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -426,9 +426,9 @@ package Ovens
 
     package QuenchingSystem
       model QuenchingUnit
-        parameter Modelica.SIunits.MassFlowRate m_nom "Nominal air mass flow of quenching system";
-        parameter Modelica.SIunits.SpecificHeatCapacity cp_air = 1006 "Heat capacity of air";
-        parameter Modelica.SIunits.Power P_el_nom "Nominal electric power demand";
+        parameter Modelica.Units.SI.MassFlowRate m_nom "Nominal air mass flow of quenching system";
+        parameter Modelica.Units.SI.SpecificHeatCapacity cp_air=1006 "Heat capacity of air";
+        parameter Modelica.Units.SI.Power P_el_nom "Nominal electric power demand";
         Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow prescribedHeatFlow annotation (Placement(transformation(extent={{60,-10},{80,10}})));
         Modelica.Blocks.Math.Gain gain1(k=-1)
                                        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
@@ -618,11 +618,11 @@ package Ovens
 
     package VacuumSystem
       model InternalVolume
-        parameter Modelica.SIunits.Volume Volume "Volume within the oven";
-        parameter Modelica.SIunits.SpecificHeatCapacity R "Ideal gas constant of the volume within the oven";
-        parameter Modelica.SIunits.Pressure pressure_start "Start value for pressure within the oven";
-        Modelica.SIunits.Mass Mass( start = (pressure_start * Volume)/(R * T)) "Mass within the oven";
-        Modelica.SIunits.Pressure pressure( start = pressure_start) "Pressure within the oven";
+        parameter Modelica.Units.SI.Volume Volume "Volume within the oven";
+        parameter Modelica.Units.SI.SpecificHeatCapacity R "Ideal gas constant of the volume within the oven";
+        parameter Modelica.Units.SI.Pressure pressure_start "Start value for pressure within the oven";
+        Modelica.Units.SI.Mass Mass(start=(pressure_start*Volume)/(R*T)) "Mass within the oven";
+        Modelica.Units.SI.Pressure pressure(start=pressure_start) "Pressure within the oven";
         Modelica.Blocks.Interfaces.RealInput T "Temperature of the volume" annotation (quantity = "ThermodynamicTemperature", unit = "K", Placement(transformation(
               extent={{20,-20},{-20,20}},
               rotation=180,
@@ -660,7 +660,7 @@ package Ovens
               extent={{20,-20},{-20,20}},
               rotation=270,
               origin={-50,-120})));
-        Modelica.Blocks.Tables.CombiTable1D V_flow(table=[5,0; 6,0; 7,1/3600; 10,40/3600; 30,100/3600; 50,120/3600; 100,150/3600; 1000,200/3600; 10000,220/3600; 100000,280/3600]) "Possible volume-flow as a functino of absolute pressure at suction side of pumpe" annotation (Placement(transformation(extent={{-8,-30},{12,-10}})));
+        Modelica.Blocks.Tables.CombiTable1Dv V_flow(table=[5,0; 6,0; 7,1/3600; 10,40/3600; 30,100/3600; 50,120/3600; 100,150/3600; 1000,200/3600; 10000,220/3600; 100000,280/3600]) "Possible volume-flow as a functino of absolute pressure at suction side of pumpe" annotation (Placement(transformation(extent={{-8,-30},{12,-10}})));
         Modelica.Blocks.Interfaces.RealInput T "Temperature on the suction side of the vacuum pump [K]" annotation (
           quantity="ThermodynamicTemperature",
           unit="K",
@@ -916,7 +916,7 @@ package Ovens
 
     package GasketcoolingSystem
       model Gasketcooling_Controller
-        parameter Modelica.SIunits.ThermodynamicTemperature T_target_gasket "Target temperature for gasketcooling";
+        parameter Modelica.Units.SI.ThermodynamicTemperature T_target_gasket "Target temperature for gasketcooling";
         Modelica.Blocks.Logical.Switch switch1 annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
         Modelica.Blocks.Continuous.LimPID PID(
           controllerType=Modelica.Blocks.Types.SimpleController.P,
@@ -1007,7 +1007,7 @@ package Ovens
       end Gasketcooling_Controller;
 
       model DummyGasketcooling
-        parameter Modelica.SIunits.Power P_th_nom "Nominal cooling power of gasketcooling system";
+        parameter Modelica.Units.SI.Power P_th_nom "Nominal cooling power of gasketcooling system";
         Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow prescribedHeatFlow annotation (Placement(transformation(extent={{60,-10},{80,10}})));
         Modelica.Blocks.Math.Gain gain(k=P_th_nom)
                                        annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
@@ -1057,11 +1057,10 @@ package Ovens
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={0,-50})));
-        parameter Modelica.SIunits.ThermodynamicTemperature T_target = 373.15
-                                                                     "Target flow temperature of liquid medium after waste heat recovery. Target temperature should be below exhaust gas temperature, otherwise no mass flow is present";
+        parameter Modelica.Units.SI.ThermodynamicTemperature T_target=373.15 "Target flow temperature of liquid medium after waste heat recovery. Target temperature should be below exhaust gas temperature, otherwise no mass flow is present";
         parameter Boolean use_WasteHeatRecovery "Boolean parameter to determine wheter waste heat recovery is used";
-        Modelica.SIunits.Power P_th_wasteHeatRecovered "Recovered thermal power";
-        Modelica.SIunits.Power P_th_wasteHeatDissipated "Dissipated thermal power";
+        Modelica.Units.SI.Power P_th_wasteHeatRecovered "Recovered thermal power";
+        Modelica.Units.SI.Power P_th_wasteHeatDissipated "Dissipated thermal power";
         Modelica.Blocks.Interfaces.RealInput T_fluid_inlet(quantity="ThermodynamicTemperature", unit="K") annotation (Placement(transformation(extent={{-140,-70},{-100,-30}})));
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a recovered "Thermal port for recovered thermal power" annotation (Placement(transformation(extent={{90,40},{110,60}})));
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a dissipated "Thermal port for dissipated thermal power" annotation (Placement(transformation(extent={{90,-60},{110,-40}})));
@@ -1319,12 +1318,13 @@ package Ovens
 
       model Working_to_SubProgramm
         Modelica.Blocks.Interfaces.BooleanInput Working "Boolean input signal of operating mode \"Working\""                 annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-        Modelica.Blocks.Tables.CombiTable1D combiTable1D(table=ProcessingProgramm_chronological_log,
-                                                                                               smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+        Modelica.Blocks.Tables.CombiTable1Dv combiTable1D(table=ProcessingProgramm_chronological_log, smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
         Modelica.Blocks.Logical.Timer timer annotation (Placement(transformation(extent={{-50,-80},{-30,-60}})));
         Modelica.StateGraph.TransitionWithSignal transitionWithSignal annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
-        Modelica.StateGraph.InitialStep initialStep annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-        Modelica.StateGraph.StepWithSignal stepWithSignal annotation (Placement(transformation(extent={{20,40},{40,60}})));
+        Modelica.StateGraph.InitialStep initialStep(nIn=1, nOut=1)
+                                                    annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+        Modelica.StateGraph.StepWithSignal stepWithSignal(nIn=1, nOut=1)
+                                                          annotation (Placement(transformation(extent={{20,40},{40,60}})));
         Modelica.Blocks.Interfaces.IntegerOutput SubProgramm "Defines which sub programm is currently active. A sub programm is a subset of a processing programm"  annotation (Placement(transformation(extent={{100,-10},{120,10}})));
         Modelica.Blocks.Math.RealToInteger realToInteger annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
         Modelica.StateGraph.Transition WaitTimeseriesDuration(enableTimer=true, waitTime=combiTable1D.table[size(combiTable1D.table, 1), 1]) annotation (Placement(transformation(extent={{60,60},{80,80}})));
@@ -1480,10 +1480,10 @@ package Ovens
         Modelica.Blocks.Interfaces.BooleanInput IsActive "Input signal determining wheter the subprogramm is active"
                                                          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
         Modelica.Blocks.Logical.Timer timer annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-        Modelica.Blocks.Tables.CombiTable1D combiTable1D(
+        Modelica.Blocks.Tables.CombiTable1Dv combiTable1D(
           table=SubProgramm_TemperatureTimeseries,
           smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments,
-          extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)                                                                                   annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+          extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) annotation (Placement(transformation(extent={{40,-10},{60,10}})));
         parameter Real SubProgramm_TemperatureTimeseries[:,2] "TBD";
       equation
         connect(timer.y, combiTable1D.u[1]) annotation (Line(points={{-39,0},{38,0}}, color={0,0,127}));
@@ -1509,12 +1509,13 @@ package Ovens
 
       model Working_to_SubProgramm_and_TargetTemperature
         Modelica.Blocks.Interfaces.BooleanInput Working "Boolean input signal of operating mode \"Working\""                 annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-        Modelica.Blocks.Tables.CombiTable1D SubProgramms(table=ProcessingProgramm_chronological_log,
-                                                                                               smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+        Modelica.Blocks.Tables.CombiTable1Dv SubProgramms(table=ProcessingProgramm_chronological_log, smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
         Modelica.Blocks.Logical.Timer timer annotation (Placement(transformation(extent={{-50,-80},{-30,-60}})));
         Modelica.StateGraph.TransitionWithSignal transitionWithSignal annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
-        Modelica.StateGraph.InitialStep initialStep annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-        Modelica.StateGraph.StepWithSignal stepWithSignal annotation (Placement(transformation(extent={{20,40},{40,60}})));
+        Modelica.StateGraph.InitialStep initialStep(nIn=1, nOut=1)
+                                                    annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+        Modelica.StateGraph.StepWithSignal stepWithSignal(nIn=1, nOut=1)
+                                                          annotation (Placement(transformation(extent={{20,40},{40,60}})));
         Modelica.StateGraph.Transition WaitTimeseriesDuration(enableTimer=true, waitTime=SubProgramms.table[size(SubProgramms.table, 1), 1]) annotation (Placement(transformation(extent={{60,60},{80,80}})));
         Modelica.StateGraph.Alternative alternative annotation (Placement(transformation(extent={{60,40},{80,60}})));
         Modelica.StateGraph.TransitionWithSignal Kill annotation (Placement(transformation(extent={{60,20},{80,40}})));
@@ -1527,8 +1528,7 @@ package Ovens
         Modelica.Blocks.Sources.Constant const(k=0) annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
         Modelica.Blocks.Interfaces.RealOutput TargetTemperature "Target temperatur which should be predominate in the oven [K]"
                                                                 annotation (Placement(transformation(extent={{100,-60},{120,-40}})));
-        Modelica.Blocks.Tables.CombiTable1D TemperatureProfiles(table=ProcessingProgramm_TemperatureTimeseries, smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments)
-                                                                                                                                                                          annotation (Placement(transformation(extent={{-10,-100},{10,-80}})));
+        Modelica.Blocks.Tables.CombiTable1Dv TemperatureProfiles(table=ProcessingProgramm_TemperatureTimeseries, smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments) annotation (Placement(transformation(extent={{-10,-100},{10,-80}})));
         Modelica.Blocks.Interfaces.RealOutput SubProgramm annotation (Placement(transformation(extent={{100,40},{120,60}})));
       equation
         connect(timer.y,SubProgramms. u[1]) annotation (Line(points={{-29,-70},{-12,-70}}, color={0,0,127}));
@@ -1620,45 +1620,45 @@ package Ovens
     package TechnicalConfiguration
       package BaseClasses
         record TechnicalConfiguration_base
-          parameter Modelica.SIunits.Density rho_wall "density of wall material" annotation(Dialog(tab = "Thermal system properties", group = "wall"));
-          parameter Modelica.SIunits.ThermalConductivity lambda_wall "thermal conductivity of wall material" annotation(Dialog(tab = "Thermal system properties", group = "wall"));
-          parameter Modelica.SIunits.SpecificHeatCapacity cp_wall "specific heat capacity of wall material" annotation(Dialog(tab = "Thermal system properties", group = "wall"));
-          parameter Modelica.SIunits.Length t_wall "thickness of wall material" annotation(Dialog(tab = "Thermal system properties", group = "wall"));
-          parameter Modelica.SIunits.Area A_wall "overall surface of wall material" annotation(Dialog(tab = "Thermal system properties", group = "wall"));
+          parameter Modelica.Units.SI.Density rho_wall "density of wall material" annotation (Dialog(tab="Thermal system properties", group="wall"));
+          parameter Modelica.Units.SI.ThermalConductivity lambda_wall "thermal conductivity of wall material" annotation (Dialog(tab="Thermal system properties", group="wall"));
+          parameter Modelica.Units.SI.SpecificHeatCapacity cp_wall "specific heat capacity of wall material" annotation (Dialog(tab="Thermal system properties", group="wall"));
+          parameter Modelica.Units.SI.Length t_wall "thickness of wall material" annotation (Dialog(tab="Thermal system properties", group="wall"));
+          parameter Modelica.Units.SI.Area A_wall "overall surface of wall material" annotation (Dialog(tab="Thermal system properties", group="wall"));
 
-          parameter Modelica.SIunits.Density rho_door "density of door material" annotation(Dialog(tab = "Thermal system properties", group = "door"));
-          parameter Modelica.SIunits.ThermalConductivity lambda_door "thermal conductivity of door material" annotation(Dialog(tab = "Thermal system properties", group = "door"));
-          parameter Modelica.SIunits.SpecificHeatCapacity cp_door "specific heat capacity of door material" annotation(Dialog(tab = "Thermal system properties", group = "door"));
-          parameter Modelica.SIunits.Length t_door "thickness of door material" annotation(Dialog(tab = "Thermal system properties", group = "door"));
-          parameter Modelica.SIunits.Area A_door "overall surface of door material" annotation(Dialog(tab = "Thermal system properties", group = "door"));
+          parameter Modelica.Units.SI.Density rho_door "density of door material" annotation (Dialog(tab="Thermal system properties", group="door"));
+          parameter Modelica.Units.SI.ThermalConductivity lambda_door "thermal conductivity of door material" annotation (Dialog(tab="Thermal system properties", group="door"));
+          parameter Modelica.Units.SI.SpecificHeatCapacity cp_door "specific heat capacity of door material" annotation (Dialog(tab="Thermal system properties", group="door"));
+          parameter Modelica.Units.SI.Length t_door "thickness of door material" annotation (Dialog(tab="Thermal system properties", group="door"));
+          parameter Modelica.Units.SI.Area A_door "overall surface of door material" annotation (Dialog(tab="Thermal system properties", group="door"));
 
-          parameter Modelica.SIunits.Mass m_retort "mass of retort" annotation(Dialog(tab = "Thermal system properties", group = "retort"));
-          parameter Modelica.SIunits.SpecificHeatCapacity cp_retort "specific heat capacity of retort" annotation(Dialog(tab = "Thermal system properties", group = "retort"));
-          parameter Modelica.SIunits.Volume v_air "volume of air within burning chamber" annotation(Dialog(tab = "Thermal system properties", group = "retort"));
+          parameter Modelica.Units.SI.Mass m_retort "mass of retort" annotation (Dialog(tab="Thermal system properties", group="retort"));
+          parameter Modelica.Units.SI.SpecificHeatCapacity cp_retort "specific heat capacity of retort" annotation (Dialog(tab="Thermal system properties", group="retort"));
+          parameter Modelica.Units.SI.Volume v_air "volume of air within burning chamber" annotation (Dialog(tab="Thermal system properties", group="retort"));
 
-          parameter Modelica.SIunits.Mass m_workpiece "mass of workpiece" annotation(Dialog(tab = "Thermal system properties", group = "workpiece"));
-          parameter Modelica.SIunits.SpecificHeatCapacity cp_workpiece "specific heat capacity of workpiece" annotation(Dialog(tab = "Thermal system properties", group = "workpiece"));
-          parameter Modelica.SIunits.Mass m_workpiece_carrier "mass of workpiece-carrier" annotation(Dialog(tab = "Thermal system properties", group = "workpiece"));
-          parameter Modelica.SIunits.SpecificHeatCapacity cp_workpiece_carrier "specific heat capacity of workpiece-carrier" annotation(Dialog(tab = "Thermal system properties", group = "workpiece"));
+          parameter Modelica.Units.SI.Mass m_workpiece "mass of workpiece" annotation (Dialog(tab="Thermal system properties", group="workpiece"));
+          parameter Modelica.Units.SI.SpecificHeatCapacity cp_workpiece "specific heat capacity of workpiece" annotation (Dialog(tab="Thermal system properties", group="workpiece"));
+          parameter Modelica.Units.SI.Mass m_workpiece_carrier "mass of workpiece-carrier" annotation (Dialog(tab="Thermal system properties", group="workpiece"));
+          parameter Modelica.Units.SI.SpecificHeatCapacity cp_workpiece_carrier "specific heat capacity of workpiece-carrier" annotation (Dialog(tab="Thermal system properties", group="workpiece"));
 
-          parameter Modelica.SIunits.CoefficientOfHeatTransfer alpha_forced "Coefficient of heat transfer for forced convection" annotation(Dialog(tab = "Thermal system properties", group = "assumptions"));
+          parameter Modelica.Units.SI.CoefficientOfHeatTransfer alpha_forced "Coefficient of heat transfer for forced convection" annotation (Dialog(tab="Thermal system properties", group="assumptions"));
 
-          parameter Modelica.SIunits.Power P_th_nom_gasket_cooling "Nominal cooling power of gasket cooling" annotation(Dialog(tab = "Technical components", group = "Components"));
-          parameter Modelica.SIunits.MassFlowRate m_flow_nom_quenching "Nominal air mass flow of quenching system" annotation(Dialog(tab = "Technical components", group = "Components"));
-          parameter Modelica.SIunits.Power P_el_nom_quenching "Nominal electric power demand of quenching system" annotation(Dialog(tab = "Technical components", group = "Components"));
-          parameter Modelica.SIunits.Power P_th_nom_heating "Nominal heating power of heater unit" annotation(Dialog(tab = "Technical components", group = "Components"));
+          parameter Modelica.Units.SI.Power P_th_nom_gasket_cooling "Nominal cooling power of gasket cooling" annotation (Dialog(tab="Technical components", group="Components"));
+          parameter Modelica.Units.SI.MassFlowRate m_flow_nom_quenching "Nominal air mass flow of quenching system" annotation (Dialog(tab="Technical components", group="Components"));
+          parameter Modelica.Units.SI.Power P_el_nom_quenching "Nominal electric power demand of quenching system" annotation (Dialog(tab="Technical components", group="Components"));
+          parameter Modelica.Units.SI.Power P_th_nom_heating "Nominal heating power of heater unit" annotation (Dialog(tab="Technical components", group="Components"));
           parameter Real eta_f "Constant firing efficiency of heater unit" annotation(Dialog(tab = "Technical components", group = "Components"));
           parameter Boolean use_quenching_heat_recovery "True to recover heat from quenching air stream" annotation(Dialog(tab = "Technical components", group = "Components"));
           parameter Boolean use_heating_heat_recovery "True to recover heat from heating exhaust stream" annotation(Dialog(tab = "Technical components", group = "Components"));
 
-          parameter Modelica.SIunits.ThermodynamicTemperature T_target_gasketcooling "Target temperature of gasketcooling" annotation(Dialog(tab = "Temperatures", group = "Target-temperatures"));
-          parameter Modelica.SIunits.ThermodynamicTemperature T_target_quenching_heat_recovery "Fluid target temperature of heat recovery of quenching" annotation(Dialog(tab = "Temperatures", group = "Target-temperatures"));
-          parameter Modelica.SIunits.ThermodynamicTemperature T_target_heating_heat_recovery "Fluid target temperature of heat recovery of heating" annotation(Dialog(tab = "Temperatures", group = "Target-temperatures"));
-          parameter Modelica.SIunits.ThermodynamicTemperature T_init_air "Initial temperature of air volume within burning chamber" annotation(Dialog(tab = "Temperatures", group = "Initialization"));
-          parameter Modelica.SIunits.ThermodynamicTemperature T_init_retort "Initial temperature of retort" annotation(Dialog(tab = "Temperatures", group = "Initialization"));
-          parameter Modelica.SIunits.ThermodynamicTemperature T_init_workpiece "Initial temperature of workpiece" annotation(Dialog(tab = "Temperatures", group = "Initialization"));
-          parameter Modelica.SIunits.ThermodynamicTemperature T_init_wall "Initial temperature of wall" annotation(Dialog(tab = "Temperatures", group = "Initialization"));
-          parameter Modelica.SIunits.ThermodynamicTemperature T_init_door "Initial temperature of door" annotation(Dialog(tab = "Temperatures", group = "Initialization"));
+          parameter Modelica.Units.SI.ThermodynamicTemperature T_target_gasketcooling "Target temperature of gasketcooling" annotation (Dialog(tab="Temperatures", group="Target-temperatures"));
+          parameter Modelica.Units.SI.ThermodynamicTemperature T_target_quenching_heat_recovery "Fluid target temperature of heat recovery of quenching" annotation (Dialog(tab="Temperatures", group="Target-temperatures"));
+          parameter Modelica.Units.SI.ThermodynamicTemperature T_target_heating_heat_recovery "Fluid target temperature of heat recovery of heating" annotation (Dialog(tab="Temperatures", group="Target-temperatures"));
+          parameter Modelica.Units.SI.ThermodynamicTemperature T_init_air "Initial temperature of air volume within burning chamber" annotation (Dialog(tab="Temperatures", group="Initialization"));
+          parameter Modelica.Units.SI.ThermodynamicTemperature T_init_retort "Initial temperature of retort" annotation (Dialog(tab="Temperatures", group="Initialization"));
+          parameter Modelica.Units.SI.ThermodynamicTemperature T_init_workpiece "Initial temperature of workpiece" annotation (Dialog(tab="Temperatures", group="Initialization"));
+          parameter Modelica.Units.SI.ThermodynamicTemperature T_init_wall "Initial temperature of wall" annotation (Dialog(tab="Temperatures", group="Initialization"));
+          parameter Modelica.Units.SI.ThermodynamicTemperature T_init_door "Initial temperature of door" annotation (Dialog(tab="Temperatures", group="Initialization"));
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
         end TechnicalConfiguration_base;
@@ -1792,8 +1792,8 @@ package Ovens
       end WorkpieceHallDissipation;
 
       model ThermalOnOffSwitch
-        Modelica.SIunits.HeatFlowRate Q_flow;
-        Modelica.SIunits.TemperatureDifference dT;
+        Modelica.Units.SI.HeatFlowRate Q_flow;
+        Modelica.Units.SI.TemperatureDifference dT;
         Real k;
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b port_out annotation (Placement(transformation(extent={{90,-10},{110,10}})));
@@ -1907,13 +1907,13 @@ package Ovens
          coolDemands=3,
          m=10000,
          cp=500,
-        TInitial=298.15,
+      TInitial=298.15,
          heatDemands=0,
          tableOperationMode=[0, 3; 86400, 3],
          operationModes=3);
       parameter Real tableProcessingProgramm[:,2]=[0,1; 86400,1]
                                                     "Table matrix (time = first column; processingProgramm = second column)";
-      replaceable parameter ThermalIntegrationLib.ProductionEquipment.Ovens.AnnealingOven.TechnicalConfiguration.TechnicalConfiguration_a TechnicalConfiguration(use_quenching_heat_recovery=false, use_heating_heat_recovery=false) constrainedby ThermalIntegrationLib.ProductionEquipment.Ovens.AnnealingOven.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base "Record which defines technical/physical parameters" annotation (choicesAllMatching=true);
+      replaceable parameter ThermalIntegrationLib.ProductionEquipment.Ovens.AnnealingOven.TechnicalConfiguration.TechnicalConfiguration_a TechnicalConfiguration                                                                     constrainedby ThermalIntegrationLib.ProductionEquipment.Ovens.AnnealingOven.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base "Record which defines technical/physical parameters" annotation (choicesAllMatching=true);
         replaceable parameter ProcessingProgramms.ProcessingProgramm_abc                                                                               ProcessingProgramm_1 constrainedby ThermalIntegrationLib.ProductionEquipment.Ovens.AnnealingOven.ProcessingProgramms.BaseClasses.ProcessingProgramm_base
                                                                                                                                                                                                         annotation (choicesAllMatching=true, Placement(transformation(extent={{-270,-260},{-250,-240}})));
         replaceable parameter ProcessingProgramms.ProcessingProgramm_def                                                                               ProcessingProgramm_2 constrainedby ThermalIntegrationLib.ProductionEquipment.Ovens.AnnealingOven.ProcessingProgramms.BaseClasses.ProcessingProgramm_base

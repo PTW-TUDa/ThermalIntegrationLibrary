@@ -2,17 +2,17 @@ within ThermalIntegrationLib.ProductionEquipment.CleaningMachines;
 package EiB_CleaningMachine1Tank_electrical
   package TankHeating
     model Tank1_heating
-      parameter Modelica.SIunits.Power P_heat "Electrical power of tank heating";
+      parameter Modelica.Units.SI.Power P_heat "Electrical power of tank heating";
       parameter Real eta_heat "Efficiency factor of electrical heating (0-1)";
-      parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
-      parameter Modelica.SIunits.Temperature T_lim "Minimum temperature of cleaning fluid";
+      parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
+      parameter Modelica.Units.SI.Temperature T_lim "Minimum temperature of cleaning fluid";
 
-      parameter Modelica.SIunits.Mass m_t1 "Mass of cleaning fluid";
-      parameter Modelica.SIunits.Area A_t1 "Surface area of tank";
-      parameter Modelica.SIunits.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
+      parameter Modelica.Units.SI.Mass m_t1 "Mass of cleaning fluid";
+      parameter Modelica.Units.SI.Area A_t1 "Surface area of tank";
+      parameter Modelica.Units.SI.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
 
-      parameter Modelica.SIunits.Length d_ins "Thickness insulation";
-      parameter Modelica.SIunits.ThermalConductivity lambda_ins "Thermal conductivity insulation";
+      parameter Modelica.Units.SI.Length d_ins "Thickness insulation";
+      parameter Modelica.Units.SI.ThermalConductivity lambda_ins "Thermal conductivity insulation";
 
       parameter Integer washingTable[:,1]=fill(0,1,1);
       Integer rows = size(washingTable,1);
@@ -187,11 +187,11 @@ package EiB_CleaningMachine1Tank_electrical
 
   package Batches
     model batch
-      parameter Modelica.SIunits.Mass m_batch "Mass of batch";
-      parameter Modelica.SIunits.HeatCapacity c_batch "Heat capacity of batch";
+      parameter Modelica.Units.SI.Mass m_batch "Mass of batch";
+      parameter Modelica.Units.SI.HeatCapacity c_batch "Heat capacity of batch";
 
-      parameter Modelica.SIunits.Mass m_rack "Mass of batching rack";
-      parameter Modelica.SIunits.HeatCapacity c_rack "Heat capacity of batching rack";
+      parameter Modelica.Units.SI.Mass m_rack "Mass of batching rack";
+      parameter Modelica.Units.SI.HeatCapacity c_rack "Heat capacity of batching rack";
       Real T_batch,
            Q_dot_batch(start=0);
       Modelica.Blocks.Interfaces.BooleanInput t1_state annotation (Placement(transformation(extent={{-160,110},{-140,130}}),
@@ -254,11 +254,11 @@ package EiB_CleaningMachine1Tank_electrical
     end batch;
 
     model hot_batches
-      parameter Modelica.SIunits.Mass m_batch "Mass of batch";
-      parameter Modelica.SIunits.HeatCapacity c_batch "Heat capacity of batch";
-      parameter Modelica.SIunits.Mass m_rack "Mass of batching rack";
-      parameter Modelica.SIunits.HeatCapacity c_rack "Heat capacity of batching rack";
-      parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
+      parameter Modelica.Units.SI.Mass m_batch "Mass of batch";
+      parameter Modelica.Units.SI.HeatCapacity c_batch "Heat capacity of batch";
+      parameter Modelica.Units.SI.Mass m_rack "Mass of batching rack";
+      parameter Modelica.Units.SI.HeatCapacity c_rack "Heat capacity of batching rack";
+      parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
       Modelica.Blocks.Interfaces.BooleanInput new_batch
         annotation (Placement(transformation(extent={{-140,-60},{-100,-20}}),iconTransformation(extent={{-140,
                 -60},{-100,-20}})));
@@ -530,11 +530,11 @@ ctrl")}),                                                            Diagram(coo
     end batch_controller;
 
     model single_hot_batch
-      parameter Modelica.SIunits.Mass m_batch "Mass of batch";
-      parameter Modelica.SIunits.HeatCapacity c_batch "Heat capacity of batch";
-      parameter Modelica.SIunits.Mass m_rack "Mass of batching rack";
-      parameter Modelica.SIunits.HeatCapacity c_rack "Heat capacity of batching rack";
-      parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
+      parameter Modelica.Units.SI.Mass m_batch "Mass of batch";
+      parameter Modelica.Units.SI.HeatCapacity c_batch "Heat capacity of batch";
+      parameter Modelica.Units.SI.Mass m_rack "Mass of batching rack";
+      parameter Modelica.Units.SI.HeatCapacity c_rack "Heat capacity of batching rack";
+      parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
       parameter Integer batch_number;
       Real T(start=T_req);
 
@@ -608,8 +608,8 @@ ctrl")}),                                                            Diagram(coo
 
   package ProcessingProgramms
     model stateController
-      parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
-      parameter Modelica.SIunits.Temperature T_lim "Minimum temperature of cleaning fluid";
+      parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
+      parameter Modelica.Units.SI.Temperature T_lim "Minimum temperature of cleaning fluid";
       parameter Integer stateTable[:,2]=fill(0,1,2) "first col state, sec col duration in s";
       parameter Integer washingTable[:,1]=fill(0,1,1);
       Integer rows = size(stateTable,1),
@@ -634,7 +634,7 @@ ctrl")}),                                                            Diagram(coo
             rotation=90,
             origin={48,-120})));
     protected
-           Modelica.SIunits.Time startTime;
+      Modelica.Units.SI.Time startTime;
            Boolean washing;
 
     algorithm
@@ -784,23 +784,23 @@ ctrl")}),                                                            Diagram(coo
     package BaseClasses
       record TechnicalConfiguration_base
 
-        parameter Modelica.SIunits.Mass m_batch "Mass of batch" annotation(Dialog(tab = "Batch", group = "Batch"));
-        parameter Modelica.SIunits.HeatCapacity c_batch "Heat capacity of batch" annotation(Dialog(tab = "Batch", group = "Batch"));
+        parameter Modelica.Units.SI.Mass m_batch "Mass of batch" annotation (Dialog(tab="Batch", group="Batch"));
+        parameter Modelica.Units.SI.HeatCapacity c_batch "Heat capacity of batch" annotation (Dialog(tab="Batch", group="Batch"));
 
-        parameter Modelica.SIunits.Mass m_rack "Mass of batching rack" annotation(Dialog(tab = "Batch", group = "Batching rack"));
-        parameter Modelica.SIunits.HeatCapacity c_rack "Heat capacity of batching rack" annotation(Dialog(tab = "Batch", group = "Batching rack"));
+        parameter Modelica.Units.SI.Mass m_rack "Mass of batching rack" annotation (Dialog(tab="Batch", group="Batching rack"));
+        parameter Modelica.Units.SI.HeatCapacity c_rack "Heat capacity of batching rack" annotation (Dialog(tab="Batch", group="Batching rack"));
 
-        parameter Modelica.SIunits.Power P_heat "Electrical power of tank heating" annotation(Dialog(tab = "Tanks", group = "Heating"));
+        parameter Modelica.Units.SI.Power P_heat "Electrical power of tank heating" annotation (Dialog(tab="Tanks", group="Heating"));
         parameter Real eta_heat "Efficiency factor of electrical heating (0-1)" annotation(Dialog(tab = "Tanks", group = "Heating"));
-        parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid" annotation(Dialog(tab = "Tanks", group = "Heating"));
-        parameter Modelica.SIunits.Temperature T_lim "Minimum temperature of cleaning fluid" annotation(Dialog(tab = "Tanks", group = "Heating"));
+        parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid" annotation (Dialog(tab="Tanks", group="Heating"));
+        parameter Modelica.Units.SI.Temperature T_lim "Minimum temperature of cleaning fluid" annotation (Dialog(tab="Tanks", group="Heating"));
 
-        parameter Modelica.SIunits.Mass m_t1 "Mass of cleaning fluid" annotation(Dialog(tab = "Tanks", group = "Tank parameters"));
-        parameter Modelica.SIunits.Area A_t1 "Surface area of tank" annotation(Dialog(tab = "Tanks", group = "Tank parameters"));
-        parameter Modelica.SIunits.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid" annotation(Dialog(tab = "Tanks", group = "Tank parameters"));
+        parameter Modelica.Units.SI.Mass m_t1 "Mass of cleaning fluid" annotation (Dialog(tab="Tanks", group="Tank parameters"));
+        parameter Modelica.Units.SI.Area A_t1 "Surface area of tank" annotation (Dialog(tab="Tanks", group="Tank parameters"));
+        parameter Modelica.Units.SI.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid" annotation (Dialog(tab="Tanks", group="Tank parameters"));
 
-        parameter Modelica.SIunits.Length d_ins "Thickness insulation" annotation(Dialog(tab = "Insulation"));
-        parameter Modelica.SIunits.ThermalConductivity lambda_ins "Thermal conductivity insulation" annotation(Dialog(tab = "Insulation"));
+        parameter Modelica.Units.SI.Length d_ins "Thickness insulation" annotation (Dialog(tab="Insulation"));
+        parameter Modelica.Units.SI.ThermalConductivity lambda_ins "Thermal conductivity insulation" annotation (Dialog(tab="Insulation"));
 
         annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(
                 preserveAspectRatio=false)));

@@ -23,7 +23,7 @@ package ProcessingProgramms
           rotation=90,
           origin={48,-120})));
   protected
-         Modelica.SIunits.Time startTime;
+    Modelica.Units.SI.Time startTime;
          Boolean washing;
 
   algorithm

@@ -1,7 +1,7 @@
 within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_electrical.ProcessingProgramms;
 model stateController
-  parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
-  parameter Modelica.SIunits.Temperature T_lim "Minimum temperature of cleaning fluid";
+  parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
+  parameter Modelica.Units.SI.Temperature T_lim "Minimum temperature of cleaning fluid";
   parameter Integer stateTable[:,2]=fill(0,1,2) "first col state, sec col duration in s";
   parameter Integer washingTable_T1[:,1]=fill(0,1,1);
   parameter Integer washingTable_T2[:,1]=fill(0,1,1);
@@ -35,7 +35,7 @@ model stateController
         rotation=90,
         origin={30,-120})));
 protected
-       Modelica.SIunits.Time startTime;
+  Modelica.Units.SI.Time startTime;
        Boolean washing;
 
 algorithm

@@ -1,3 +1,0 @@
-within ThermalIntegrationLib.ProductionEquipment.MachineTools.MachineTool.TechnicalConfiguration;
-package BaseClasses
-end BaseClasses;

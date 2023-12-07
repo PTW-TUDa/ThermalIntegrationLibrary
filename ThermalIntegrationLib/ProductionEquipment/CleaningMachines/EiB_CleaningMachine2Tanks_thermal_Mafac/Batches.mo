@@ -1,10 +1,10 @@
 within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_thermal_Mafac;
 package Batches
   model batch
-    parameter Modelica.SIunits.Mass m_batch "Mass of batch";
-    parameter Modelica.SIunits.HeatCapacity c_batch "Heat capacity of batch";
-    parameter Modelica.SIunits.Mass m_rack "Mass of batching rack";
-    parameter Modelica.SIunits.HeatCapacity c_rack "Heat capacity of batching rack";
+    parameter Modelica.Units.SI.Mass m_batch "Mass of batch";
+    parameter Modelica.Units.SI.HeatCapacity c_batch "Heat capacity of batch";
+    parameter Modelica.Units.SI.Mass m_rack "Mass of batching rack";
+    parameter Modelica.Units.SI.HeatCapacity c_rack "Heat capacity of batching rack";
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_tank
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor_batch(C=(c_batch*m_batch) + (c_rack*m_rack), T(
@@ -56,11 +56,11 @@ package Batches
   end batch;
 
   model hot_batches
-    parameter Modelica.SIunits.Mass m_batch "Mass of batch";
-    parameter Modelica.SIunits.HeatCapacity c_batch "Heat capacity of batch";
-    parameter Modelica.SIunits.Mass m_rack "Mass of batching rack";
-    parameter Modelica.SIunits.HeatCapacity c_rack "Heat capacity of batching rack";
-    parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
+    parameter Modelica.Units.SI.Mass m_batch "Mass of batch";
+    parameter Modelica.Units.SI.HeatCapacity c_batch "Heat capacity of batch";
+    parameter Modelica.Units.SI.Mass m_rack "Mass of batching rack";
+    parameter Modelica.Units.SI.HeatCapacity c_rack "Heat capacity of batching rack";
+    parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
     Modelica.Blocks.Interfaces.BooleanInput new_batch
       annotation (Placement(transformation(extent={{-120,-10},{-100,10}}), iconTransformation(extent={{-120,-10},{-100,10}})));
     batch_controller batch_controller1 annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
@@ -323,11 +323,11 @@ ctrl")}),                                                          Diagram(coord
   end batch_controller;
 
   model single_hot_batch
-    parameter Modelica.SIunits.Mass m_batch "Mass of batch";
-    parameter Modelica.SIunits.HeatCapacity c_batch "Heat capacity of batch";
-    parameter Modelica.SIunits.Mass m_rack "Mass of batching rack";
-    parameter Modelica.SIunits.HeatCapacity c_rack "Heat capacity of batching rack";
-    parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
+    parameter Modelica.Units.SI.Mass m_batch "Mass of batch";
+    parameter Modelica.Units.SI.HeatCapacity c_batch "Heat capacity of batch";
+    parameter Modelica.Units.SI.Mass m_rack "Mass of batching rack";
+    parameter Modelica.Units.SI.HeatCapacity c_rack "Heat capacity of batching rack";
+    parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
     parameter Integer batch_number;
     Modelica.Blocks.Interfaces.IntegerInput batch_nr
       annotation (Placement(transformation(extent={{-120,-10},{-100,10}}), iconTransformation(extent={{-120,-10},{-100,10}})));

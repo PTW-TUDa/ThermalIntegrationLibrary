@@ -58,8 +58,8 @@ controller")}),             Diagram(coordinateSystem(preserveAspectRatio=false))
   end washingController;
 
   model thermOnOff
-    Modelica.SIunits.HeatFlowRate Q_flow;
-    Modelica.SIunits.TemperatureDifference dT;
+    Modelica.Units.SI.HeatFlowRate Q_flow;
+    Modelica.Units.SI.TemperatureDifference dT;
     Real k;
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b port_out annotation (Placement(transformation(extent={{90,-10},{110,10}})));
@@ -103,11 +103,11 @@ controller")}),             Diagram(coordinateSystem(preserveAspectRatio=false))
   end thermOnOff;
 
   model thermTankHeating2
-    parameter Modelica.SIunits.Mass m_t2 "Mass of cleaning fluid tank 2";
-    parameter Modelica.SIunits.Area A_t2 "Surface area of tank 2";
-    parameter Modelica.SIunits.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
-    parameter Modelica.SIunits.Length d_ins "Thickness insulation (for no insulation set to 0)";
-    parameter Modelica.SIunits.ThermalConductivity lambda_ins "Thermal conductivity insulation";
+    parameter Modelica.Units.SI.Mass m_t2 "Mass of cleaning fluid tank 2";
+    parameter Modelica.Units.SI.Area A_t2 "Surface area of tank 2";
+    parameter Modelica.Units.SI.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
+    parameter Modelica.Units.SI.Length d_ins "Thickness insulation (for no insulation set to 0)";
+    parameter Modelica.Units.SI.ThermalConductivity lambda_ins "Thermal conductivity insulation";
     Modelica.Thermal.HeatTransfer.Components.HeatCapacitor MT(C=m_t2*c_fluid, T(fixed=true, start=298.15))
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -202,8 +202,8 @@ controller")}),             Diagram(coordinateSystem(preserveAspectRatio=false))
 
   model thermSwitch_multi
     parameter Integer n(min=1)=2 "Number of collected heat flows port 2";
-    Modelica.SIunits.HeatFlowRate Q_flow[n];
-    Modelica.SIunits.TemperatureDifference dT[n];
+    Modelica.Units.SI.HeatFlowRate Q_flow[n];
+    Modelica.Units.SI.TemperatureDifference dT[n];
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in_1 annotation (Placement(transformation(extent={{-110,70},{-90,90}}),
           iconTransformation(extent={{-110,70},{-90,90}})));
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port_in_2[n]
@@ -259,11 +259,11 @@ controller")}),             Diagram(coordinateSystem(preserveAspectRatio=false))
   end thermSwitch_multi;
 
   model thermTankHeating1
-    parameter Modelica.SIunits.Mass m_t1 "Mass of cleaning fluid tank 1";
-    parameter Modelica.SIunits.Area A_t1 "Surface area of tank 1";
-    parameter Modelica.SIunits.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
-    parameter Modelica.SIunits.Length d_ins "Thickness insulation (for no insulation set to 0)";
-    parameter Modelica.SIunits.ThermalConductivity lambda_ins "Thermal conductivity insulation";
+    parameter Modelica.Units.SI.Mass m_t1 "Mass of cleaning fluid tank 1";
+    parameter Modelica.Units.SI.Area A_t1 "Surface area of tank 1";
+    parameter Modelica.Units.SI.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
+    parameter Modelica.Units.SI.Length d_ins "Thickness insulation (for no insulation set to 0)";
+    parameter Modelica.Units.SI.ThermalConductivity lambda_ins "Thermal conductivity insulation";
     Modelica.Thermal.HeatTransfer.Components.HeatCapacitor MT(C=c_fluid*m_t1, T(fixed=true, start=298.15))
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -408,8 +408,8 @@ controller")}),             Diagram(coordinateSystem(preserveAspectRatio=false))
           origin={30,42},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Electrical.Analog.Basic.HeatingResistor heatingResistor(
-      R_ref=10,
+    Modelica.Electrical.Analog.Basic.Resistor heatingResistor(
+      R=10,
       T_ref=293.15,
       alpha=1/255) annotation (Placement(transformation(
           origin={-16,42},

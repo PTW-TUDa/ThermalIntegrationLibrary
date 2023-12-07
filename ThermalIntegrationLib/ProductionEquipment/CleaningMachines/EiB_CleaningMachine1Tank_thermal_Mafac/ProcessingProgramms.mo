@@ -2,8 +2,8 @@ within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMa
 package ProcessingProgramms
 
   model stateController
-    parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
-    parameter Modelica.SIunits.Temperature T_lim "Minimum temperature of cleaning fluid";
+    parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
+    parameter Modelica.Units.SI.Temperature T_lim "Minimum temperature of cleaning fluid";
     parameter Integer stateTable[:,2]=fill(0,1,2) "first col state, sec col duration in s";
     Integer rows = size(stateTable,1),
             j=1,

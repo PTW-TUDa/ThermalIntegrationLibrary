@@ -13,7 +13,7 @@ model EiB_CleaningMachine1Tank_thermal_Mafac
     operationModes=3);
     parameter Integer tableProcessingProgramm[:,2]=[16,15; 5,30; 6,60; 7,60; 12,10; 11,15; 14,60; 13,90; 17,15; 2,60]
                               "Washing programm (washing mode = first column, duration in s = second column)";
-    parameter Modelica.SIunits.Temperature T_heat=363.15 "Temperature level of (potential) heat network" annotation(Dialog(group = "Heating"));
+  parameter Modelica.Units.SI.Temperature T_heat=363.15 "Temperature level of (potential) heat network" annotation (Dialog(group="Heating"));
     replaceable parameter
     ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal_Mafac.TechnicalConfiguration.TechnicalConfiguration_a
     TechnicalConfiguration constrainedby ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal_Mafac.TechnicalConfiguration.BaseClasses.TechnicalConfiguration_base;

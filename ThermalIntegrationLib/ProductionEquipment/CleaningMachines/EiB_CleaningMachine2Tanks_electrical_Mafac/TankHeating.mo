@@ -1,24 +1,24 @@
 within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine2Tanks_electrical_Mafac;
 package TankHeating
   model Tank1_heating
-  parameter Modelica.SIunits.Mass m_batch "Mass of batch";
-    parameter Modelica.SIunits.HeatCapacity c_batch "Heat capacity of batch";
+    parameter Modelica.Units.SI.Mass m_batch "Mass of batch";
+    parameter Modelica.Units.SI.HeatCapacity c_batch "Heat capacity of batch";
 
-    parameter Modelica.SIunits.Mass m_rack "Mass of batching rack";
-    parameter Modelica.SIunits.HeatCapacity c_rack "Heat capacity of batching rack";
+    parameter Modelica.Units.SI.Mass m_rack "Mass of batching rack";
+    parameter Modelica.Units.SI.HeatCapacity c_rack "Heat capacity of batching rack";
 
-    parameter Modelica.SIunits.Power P_heat "Electrical power of tank heating";
+    parameter Modelica.Units.SI.Power P_heat "Electrical power of tank heating";
     parameter Real eta_heat "Efficiency factor of electrical heating (0-1)";
-    parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
-    parameter Modelica.SIunits.Temperature T_lim "Minimum temperature of cleaning fluid";
+    parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
+    parameter Modelica.Units.SI.Temperature T_lim "Minimum temperature of cleaning fluid";
 
-    parameter Modelica.SIunits.Mass m_t1 "Mass of cleaning fluid tank 1";
-    parameter Modelica.SIunits.Area A_t1 "Surface area of tank 1";
-    parameter Modelica.SIunits.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
-    parameter Modelica.SIunits.Area A_tt "Surface area of wall between tanks";
+    parameter Modelica.Units.SI.Mass m_t1 "Mass of cleaning fluid tank 1";
+    parameter Modelica.Units.SI.Area A_t1 "Surface area of tank 1";
+    parameter Modelica.Units.SI.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
+    parameter Modelica.Units.SI.Area A_tt "Surface area of wall between tanks";
 
-    parameter Modelica.SIunits.Length d_ins "Thickness insulation";
-    parameter Modelica.SIunits.ThermalConductivity lambda_ins "Thermal conductivity insulation";
+    parameter Modelica.Units.SI.Length d_ins "Thickness insulation";
+    parameter Modelica.Units.SI.ThermalConductivity lambda_ins "Thermal conductivity insulation";
 
     Real T_t1(start=298.15),
          Q_dot_t1(start=0),
@@ -141,16 +141,16 @@ package TankHeating
   end Tank1_heating;
 
   model Tank2_heating
-    parameter Modelica.SIunits.Power P_heat "Electrical power of tank heating";
+    parameter Modelica.Units.SI.Power P_heat "Electrical power of tank heating";
     parameter Real eta_heat "Efficiency factor of electrical heating (0-1)";
-    parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
-    parameter Modelica.SIunits.Temperature T_lim "Minimum temperature of cleaning fluid";
-    parameter Modelica.SIunits.Mass m_t2 "Mass of cleaning fluid tank 2";
-    parameter Modelica.SIunits.Area A_t2 "Surface area of tank 2";
-    parameter Modelica.SIunits.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
-    parameter Modelica.SIunits.Area A_tt "Surface area of wall between tanks";
-    parameter Modelica.SIunits.Length d_ins "Thickness insulation";
-    parameter Modelica.SIunits.ThermalConductivity lambda_ins "Thermal conductivity insulation";
+    parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
+    parameter Modelica.Units.SI.Temperature T_lim "Minimum temperature of cleaning fluid";
+    parameter Modelica.Units.SI.Mass m_t2 "Mass of cleaning fluid tank 2";
+    parameter Modelica.Units.SI.Area A_t2 "Surface area of tank 2";
+    parameter Modelica.Units.SI.SpecificHeatCapacity c_fluid "Heat capacity of cleaning fluid";
+    parameter Modelica.Units.SI.Area A_tt "Surface area of wall between tanks";
+    parameter Modelica.Units.SI.Length d_ins "Thickness insulation";
+    parameter Modelica.Units.SI.ThermalConductivity lambda_ins "Thermal conductivity insulation";
     Real T_t2(start=298.15),
          Q_dot_t2(start=0),
          Q_dot_hall(start=0);

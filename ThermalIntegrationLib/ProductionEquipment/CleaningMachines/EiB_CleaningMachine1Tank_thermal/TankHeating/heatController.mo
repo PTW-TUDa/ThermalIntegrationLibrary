@@ -1,7 +1,7 @@
 within ThermalIntegrationLib.ProductionEquipment.CleaningMachines.EiB_CleaningMachine1Tank_thermal.TankHeating;
 model heatController
-  parameter Modelica.SIunits.Temperature T_req "Working temperature of cleaning fluid";
-  parameter Modelica.SIunits.Temperature T_lim "Minimum temperature of cleaning fluid";
+  parameter Modelica.Units.SI.Temperature T_req "Working temperature of cleaning fluid";
+  parameter Modelica.Units.SI.Temperature T_lim "Minimum temperature of cleaning fluid";
   parameter Integer washingTable[:,1] "States when washing is active";
   Integer rows = size(washingTable,1);
   Modelica.Blocks.Interfaces.IntegerInput state
