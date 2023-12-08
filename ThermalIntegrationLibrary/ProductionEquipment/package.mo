@@ -1,0 +1,5 @@
+within ThermalIntegrationLibrary;
+package ProductionEquipment
+  extends ThermalIntegrationLibrary.BaseClasses.Icons.ProductionEquipmentPackage;
+
+end ProductionEquipment;

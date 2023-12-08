@@ -1,0 +1,3 @@
+within ThermalIntegrationLibrary.FactoryBuilding.ProductionHall;
+package BuildingEnvelope
+end BuildingEnvelope;

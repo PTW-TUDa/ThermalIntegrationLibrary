@@ -1,0 +1,4 @@
+within ThermalIntegrationLibrary.ProductionEquipment.CleaningMachines;
+package CabinetCleaningMachine
+  extends ThermalIntegrationLibrary.BaseClasses.Icons.CleaningMachines;
+end CabinetCleaningMachine;

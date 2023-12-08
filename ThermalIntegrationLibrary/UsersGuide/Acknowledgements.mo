@@ -1,4 +1,4 @@
-within ThermalIntegrationLib.UsersGuide;
+within ThermalIntegrationLibrary.UsersGuide;
 model Acknowledgements "Acknowledgements"
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=false)),

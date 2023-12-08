@@ -1,0 +1,3 @@
+within ThermalIntegrationLibrary.ProductionEquipment.MachineTools.TurningMachine;
+package TechnicalConfiguration
+end TechnicalConfiguration;

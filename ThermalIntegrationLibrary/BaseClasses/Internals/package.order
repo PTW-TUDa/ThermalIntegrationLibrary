@@ -1,0 +1,13 @@
+Q_flowDemand
+SemPowerPort
+Power
+ElectricDemand
+ElectricPowerPort
+CoolingPowerPort
+HeatingPowerPort
+DissipationPowerPort
+BuildingPort
+ControlUnit
+SmoothTransition
+smoothTransition
+PartialSummary

@@ -1,0 +1,4 @@
+within ThermalIntegrationLibrary.ProductionEquipment.CleaningMachines.CabinetCleaningMachine;
+package MechanicalProcesses
+
+end MechanicalProcesses;
