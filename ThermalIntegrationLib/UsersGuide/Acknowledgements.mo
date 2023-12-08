@@ -5,7 +5,7 @@ model Acknowledgements "Acknowledgements"
     Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <h4>Acknowledgments</h4>
-<p>The development of this library was thankfully supported by BMWK-funded project &quot;ETA im Bestand&quot; (03EN2048) (1/2020-06/2024).</p>
+<p>The development of this library was thankfully supported by BMWK-funded project &quot;ETA im Bestand&quot; (03EN2048) (11/2020-04/2024).</p>
 <h4>People</h4>
 <p>The following people have directly contributed to the implementation of the ThermalIntegrationLibrary:</p>
 <p>Institute for Production Management, Technology and Machine Tools of the Technical University of Darmstadt:</p>
