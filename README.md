@@ -16,4 +16,5 @@ Please keep in mind the following before contributing:
 >- Create a Dymola shortcut on your desktop.
 >- Open the properties of the shortcut and link the .mos script via the _target_ field.
 
-# How to create an issue
+# ETA FactoryBuidlings package
+The Modelica model of the ETA Factory building can be requested via mail at kirschstein@ismd.tu-darmstadt.de
